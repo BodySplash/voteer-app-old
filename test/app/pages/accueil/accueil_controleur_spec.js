@@ -2,7 +2,12 @@
 
 describe('Accueil Controleur', function () {
 
-    var controleur, scope, Sondages = jasmine.createSpyObj("Sondages", ['save']);
+    var controleur,
+        scope,
+        Sondages = jasmine.createSpyObj("Sondages", ['save']),
+        window = {
+            location : jasmine.createSpyObj("location", ['replace'])
+        };
 
     beforeEach(function () {
         angular.mock.module("sondage.ressource")
@@ -14,7 +19,8 @@ describe('Accueil Controleur', function () {
         scope = $rootScope.$new();
         controleur = $controller("AccueilControleur", {
             $scope: scope,
-            SondagesRessource : Sondages
+            SondagesRessource : Sondages,
+            $window : window
         });
     }));
 
@@ -37,9 +43,9 @@ describe('Accueil Controleur', function () {
            callback({id : "unId", adminKey : "uneAdminKey"})
        });
 
-        //scope.creeSondage();
+       scope.creeSondage();
 
-        // à faire passer
-        //expect($window.location).toBe("/polls/unId/admin?key=uneAdminKey")
+
+        expect(window.location.replace).toHaveBeenCalledWith("/polls/unId/admin?key=uneAdminKey");
     }));
 });

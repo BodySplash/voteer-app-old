@@ -1,5 +1,6 @@
 var express = require("express"),
 	routes = require("./routes"),
+    adminRoute = require("./routes/admin"),
 	path = require('path'),
     BundleUp = require('bundle-up');
 
@@ -33,6 +34,7 @@ app.configure('development', function() {
 
 
 app.get('/', routes.index);
+app.get('/polls/:pollId/admin', adminRoute.index);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
