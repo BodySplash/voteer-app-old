@@ -1,0 +1,12 @@
+{
+  "name": "voteer webapp",
+  "version": "0.0.1",
+  "dependencies": {
+    "underscore": "~1.5.1",
+    "jquery": "~2.0.3",
+    "angular": "~1.0.8",
+    "angular-resource": "~1.0.8",
+    "angular-mocks": "~1.0.8",
+    "jasmine": "~1.3.1"
+  }
+}

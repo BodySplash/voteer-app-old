@@ -1,0 +1,17 @@
+{
+  "name": "voteer-webapp",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.x",
+    "jade": "~0.35.0",
+    "bundle-up": "~0.3.5",
+    "underscore": "~1.5.1"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
