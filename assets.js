@@ -11,10 +11,16 @@ module.exports = function (assets) {
     ]);
 
     bundleJs('accueil', [
+        '/public/app/sondage/_module.js',
         '/public/app/sondage/sondages_ressource.js',
         '/public/app/pages/accueil/accueil_controleur.js',
     ]);
 
+    bundleJs('admin', [
+        '/public/app/sondage/_module.js',
+        '/public/app/sondage/sondage_ressource.js',
+        '/public/app/pages/admin/admin_controleur.js',
+    ]);
 
     assets.addCss('/public/bootstrap/css/bootstrap.css');
     assets.addCss('/public/css/style.css');

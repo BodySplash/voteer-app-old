@@ -1,5 +1,7 @@
 extends layout
 block content
-
+    div(ng-app='pages.admin', ng-controller="AdminControleur")
+        header.entete-sondage
+            h1(ng-bind='sondage.name')
 block js
-    != renderJs()
+    != renderJs("admin")
