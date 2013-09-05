@@ -4,8 +4,8 @@
     angular.module("sondage.ressource")
         .factory('SondageRessource', ['$resource', 'env', function($resource, env) {
 
-            return $resource(env("/polls/:id"), {}, {
-
+            return $resource(env("/polls/:id"), {id :  '@id'}, {
+                update : {method:"PUT"}
             });
         }]);
 })();

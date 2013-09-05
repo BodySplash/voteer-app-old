@@ -3,5 +3,28 @@ block content
     div(ng-app='pages.admin', ng-controller="AdminControleur")
         header.entete-sondage
             h1(ng-bind='sondage.name')
+        .page-header
+            h3#links
+                Vote link :
+                a(ng-href="/polls/{{sondage.id}}") <span ng-bind="'/polls/' + sondage.id">
+
+            .well(ng-cloak="", ng-controller="ConfigurationSondageControleur")
+                h4 Votes are :
+                .btn-group(data-toggle="buttons")
+                    label.btn.btn-primary(ng-class="{Privee:'active'}[sondage.visibility]", ng-click="changeVisibilite('Privee')")
+                        input(type="radio", name="visibility", value="Privee")
+                        | Private
+                    label.btn.btn-primary(ng-class="{Public:'active'}[sondage.visibility]", ng-click="changeVisibilite('Public')")
+                        input(type="radio", name="visibility", value="Public")
+                        | Public
+                h4 Comments are :
+                .btn-group(data-toggle="buttons")
+                    label.btn.btn-primary(ng-class="{active : !sondage.withComments}", ng-click="changeCommentaires(false)")
+                        input(type="radio", name="withComments", value="false")
+                        | Disabled
+                    label.btn.btn-primary(ng-class="{active : sondage.withComments}", ng-click="changeCommentaires(true)")
+                        input(type="radio", name="withComments", value="true")
+                        | Enabled
+
 block js
     != renderJs("admin")

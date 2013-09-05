@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module("pages.admin", ['sondage.ressource'])
+    angular.module("pages.admin")
         .config(['$locationProvider', function($locationProvider) {
            $locationProvider.html5Mode(true);
         }])

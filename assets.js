@@ -19,6 +19,8 @@ module.exports = function (assets) {
     bundleJs('admin', [
         '/public/app/sondage/_module.js',
         '/public/app/sondage/sondage_ressource.js',
+        '/public/app/pages/admin/_module.js',
+        '/public/app/pages/admin/configuration_sondage_controleur.js',
         '/public/app/pages/admin/admin_controleur.js',
     ]);
 
