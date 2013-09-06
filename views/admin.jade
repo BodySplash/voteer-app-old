@@ -25,6 +25,17 @@ block content
                     label.btn.btn-primary(ng-class="{active : sondage.withComments}", ng-click="changeCommentaires(true)")
                         input(type="radio", name="withComments", value="true")
                         | Enabled
+                h4 Proposals :
+
+                div(ng-controller="CommentairesSondageControleur")
+                    table.table
+                        tr(ng-repeat="proposition in propositions")
+                            td(ng-bind="proposition.label")
+                            td suppression
+                        tfoot
+                            td(colspan=2)
+                                input.form-control(type="text", placeholder="Enter proposal description and press enter")
+
 
 block js
     != renderJs("admin")
