@@ -27,13 +27,18 @@ describe("Admin controleur", function () {
 
 
     describe("Étant donné une url correcte", function () {
-        beforeEach(inject(
 
+        var callbackSucces;
+
+        beforeEach(inject(
             function ($controller, $rootScope, $location) {
                 scope = $rootScope.$new();
                 location = $location;
                 location.path("/polls/unId/admin").search({key:"laKey"}).replace();
-                Sondage.get.andReturn({});
+                Sondage.get.andCallFake(function(query, callback) {
+                    callbackSucces = callback;
+                    return {};
+                });
                 controleur = $controller("AdminControleur", {
                     $scope: scope,
                     SondageRessource: Sondage,
@@ -42,13 +47,25 @@ describe("Admin controleur", function () {
             }));
 
         it("doit récupérer le sondage en fonction des paramètres de l'url", function () {
-            expect(Sondage.get).toHaveBeenCalledWith({ id: 'unId', key: 'laKey'});
+            expect(Sondage.get).toHaveBeenCalledWith({ id: 'unId', key: 'laKey'}, jasmine.any(Function));
         });
 
-        it("doit donnel le sondage au scope", function () {
+        it("doit donner le sondage au scope", function () {
             expect(scope.sondage).not.toBeUndefined();
         });
+
+        it("doit propager un évènement après le chargement du sondage", function() {
+            spyOn(scope, "$broadcast");
+
+            callbackSucces();
+
+            expect(scope.$broadcast).toHaveBeenCalledWith("SondageChargé");
+        });
     });
+
+
+
+
 
 
 });

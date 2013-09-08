@@ -7,7 +7,8 @@ module.exports = function (assets) {
         '/assets/bower_components/jquery/jquery.js',
         '/public/bootstrap/js/bootstrap.js',
         '/assets/bower_components/angular/angular.js',
-        '/assets/bower_components/angular-resource/angular-resource.js'
+        '/assets/bower_components/angular/angular-resource.js',
+        '/assets/bower_components/angular-ui/build/angular-ui.js'
     ]);
 
     bundleJs('accueil', [
@@ -21,9 +22,10 @@ module.exports = function (assets) {
         '/public/app/sondage/sondage_ressource.js',
         '/public/app/proposition/_module.js',
         '/public/app/proposition/propositions_sondage_ressource.js',
+        '/public/app/proposition/proposition_sondage_ressource.js',
         '/public/app/pages/admin/_module.js',
         '/public/app/pages/admin/configuration_sondage_controleur.js',
-        '/public/app/pages/admin/commentaires_sondage_controleur.js',
+        '/public/app/pages/admin/propositions_sondage_controleur.js',
         '/public/app/pages/admin/admin_controleur.js',
     ]);
 

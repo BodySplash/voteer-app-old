@@ -1,5 +1,5 @@
 (function() {
     "use strict";
 
-    angular.module("pages.admin", ["sondage.ressource", "proposition.ressource"]);
+    angular.module("pages.admin", ["sondage.ressource", "proposition.ressource", "ui.directives"]);
 })();

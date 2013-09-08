@@ -27,14 +27,16 @@ block content
                         | Enabled
                 h4 Proposals :
 
-                div(ng-controller="CommentairesSondageControleur")
+                div(ng-controller="PropositionsSondageControleur")
                     table.table
                         tr(ng-repeat="proposition in propositions")
                             td(ng-bind="proposition.label")
-                            td suppression
+                            td
+                                button.btn.btn-danger(ng-click="supprimeProposition(proposition)")
+                                    span.glyphicon.glyphicon-trash Delete
                         tfoot
                             td(colspan=2)
-                                input.form-control(type="text", placeholder="Enter proposal description and press enter")
+                                input.form-control(type="text", placeholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
 
 
 block js
