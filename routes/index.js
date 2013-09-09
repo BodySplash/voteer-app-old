@@ -1,7 +1,9 @@
-exports.index = function (req, res) {
+var indexRoute = require("./accueil"),
+    adminRoute = require("./admin"),
+    pollRoute = require("./sondage");
 
-	res.render('index', {
-        classe : 'accueil',
-        titre : 'Voteer, group compromise made easy'});
-
-};
+module.exports = function(app) {
+    app.get('/', indexRoute.index);
+    app.get('/polls/:id', pollRoute.index);
+    app.get('/polls/:id/admin', adminRoute.index);
+}

@@ -1,0 +1,12 @@
+extends layout
+block content
+    div(ng-app='pages.sondage', ng-controller="SondageControleur")
+        header.entete-sondage
+            h1(ng-bind='sondage.name')
+        .page-header
+            .well(ng-cloak="")
+
+
+
+block js
+    != renderJs("sondage")

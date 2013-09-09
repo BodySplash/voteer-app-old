@@ -14,7 +14,7 @@ module.exports = function (assets) {
     bundleJs('accueil', [
         '/public/app/sondage/_module.js',
         '/public/app/sondage/sondages_ressource.js',
-        '/public/app/pages/accueil/accueil_controleur.js',
+        '/public/app/pages/accueil/accueil_controleur.js'
     ]);
 
     bundleJs('admin', [
@@ -26,7 +26,16 @@ module.exports = function (assets) {
         '/public/app/pages/admin/_module.js',
         '/public/app/pages/admin/configuration_sondage_controleur.js',
         '/public/app/pages/admin/propositions_sondage_controleur.js',
-        '/public/app/pages/admin/admin_controleur.js',
+        '/public/app/pages/admin/admin_controleur.js'
+    ]);
+
+    bundleJs('sondage', [
+        '/public/app/sondage/_module.js',
+        '/public/app/sondage/sondage_ressource.js',
+        '/public/app/proposition/_module.js',
+        '/public/app/proposition/proposition_sondage_ressource.js',
+        '/public/app/pages/sondage/_module.js',
+        '/public/app/pages/sondage/sondage_controleur.js',
     ]);
 
     assets.addCss('/public/bootstrap/css/bootstrap.css');
