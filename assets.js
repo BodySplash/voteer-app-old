@@ -34,8 +34,9 @@ module.exports = function (assets) {
         '/public/app/sondage/_module.js',
         '/public/app/sondage/sondage_ressource.js',
         '/public/app/proposition/_module.js',
-        '/public/app/proposition/proposition_sondage_ressource.js',
+        '/public/app/proposition/propositions_sondage_ressource.js',
         '/public/app/pages/sondage/_module.js',
+        '/public/app/pages/sondage/vote_controleur.js',
         '/public/app/pages/sondage/sondage_controleur.js',
     ]);
 

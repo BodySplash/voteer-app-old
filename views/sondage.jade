@@ -3,10 +3,27 @@ block content
     div(ng-app='pages.sondage', ng-controller="SondageControleur")
         header.entete-sondage
             h1(ng-bind='sondage.name')
-        .page-header
-            .well(ng-cloak="")
 
+        .well
+            h3 Participate :
+            form(ng-controller="VoteControleur")
+                .form-group
+                    label(for="nom") Your name or nickname
+                    input.form-control(type="text", placeholder="Enter name or nickname")
 
+                .form-group
+                    label Proceed with your vote !
+                .form-group.form-inline
+                    label Available proposals
+                        select(multiple=true)
+                            option(ng-repeat="proposition in propositions", value="{{proposition.label}}", ng-bind="proposition.label")
+
+                    button.btn.btn-default
+                        span.glyphicon.glyphicon-chevron-left
+                    button.btn.btn-default
+                        span.glyphicon.glyphicon-chevron-right
+                    label Your vote
+                        select(multiple=true)
 
 block js
     != renderJs("sondage")
