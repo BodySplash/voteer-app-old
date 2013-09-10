@@ -3,7 +3,6 @@
 describe("Admin controleur", function () {
 
     var controleur, scope,
-        location,
         Sondage = jasmine.createSpyObj("Sondage", ['get']);
 
     beforeEach(function () {
@@ -13,11 +12,10 @@ describe("Admin controleur", function () {
 
     beforeEach(inject(function ($controller, $rootScope, $location) {
         scope = $rootScope.$new();
-        location = $location;
         controleur = $controller("AdminControleur", {
             $scope: scope,
             SondageRessource: Sondage,
-            $location: location
+            $window: {location : ""}
         });
     }));
 
@@ -31,10 +29,8 @@ describe("Admin controleur", function () {
         var callbackSucces;
 
         beforeEach(inject(
-            function ($controller, $rootScope, $location) {
+            function ($controller, $rootScope) {
                 scope = $rootScope.$new();
-                location = $location;
-                location.path("/polls/unId/admin").search({key:"laKey"}).replace();
                 Sondage.get.andCallFake(function(query, callback) {
                     callbackSucces = callback;
                     return {};
@@ -42,7 +38,7 @@ describe("Admin controleur", function () {
                 controleur = $controller("AdminControleur", {
                     $scope: scope,
                     SondageRessource: Sondage,
-                    $location: location
+                    $window : {location : "http://test.com/polls/unId/admin?key=laKey"}
                 });
             }));
 

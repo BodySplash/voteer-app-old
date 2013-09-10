@@ -15,6 +15,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'assets/bower_components/underscore/underscore.js',
+      'assets/bower_components/uri.js/src/URI.js',
       'assets/bower_components/angular/angular.js',
       'assets/bower_components/angular-ui/build/angular-ui.js',
       'assets/bower_components/angular/angular-resource.js',
