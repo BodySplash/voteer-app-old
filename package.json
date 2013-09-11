@@ -2,19 +2,18 @@
   "name": "voteer-webapp",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "express": "3.x",
     "jade": "~0.35.0",
     "bundle-up": "~0.3.5",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "bower": "1.2.x"
   },
   "engines": {
     "node": "0.10.x",
     "npm": "1.2.x"
-  },
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }
