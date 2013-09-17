@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("pages.sondage")
-        .controller('VoteControleur', ['$scope', 'PropositionsSondageRessource', 'VotesSondageRessource', function($scope, Propositions, Votes) {
+        .controller('VoteControleur', ['$scope', '$window', 'PropositionsSondageRessource', 'VotesSondageRessource', function($scope, $window, Propositions, Votes) {
 
             $scope.vote ={
                 name : "",
@@ -35,7 +35,9 @@
             };
 
             $scope.valideVote = function() {
-                Votes.save({id: $scope.sondage.id}, $scope.vote);
+                Votes.save({id: $scope.sondage.id}, $scope.vote, function() {
+                    $window.location = "/thankyou?pollId=" + $scope.sondage.id
+                });
             };
 
 
