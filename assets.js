@@ -43,7 +43,7 @@ module.exports = function (assets) {
     ]);
 
     assets.addCss('/public/bootstrap/css/bootstrap.css');
-    assets.addCss('/public/css/style.css');
+    assets.addCss('/public/css/style.styl');
 
     function bundleJs(name, files) {
         _.each(files, function (file) {

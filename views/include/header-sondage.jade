@@ -1,0 +1,9 @@
+mixin headerSondage()
+
+    header.entete-sondage.page-header
+        h1(ng-bind='sondage.name')
+        p
+            span.glyphicon.glyphicon-time
+            | {{sondage.creationDate|date:'medium'}}
+        p
+            a(href="/polls/{{sondage.id}}/result") See poll result
