@@ -13,26 +13,31 @@ block content
 
 
                 label Proceed with your vote !
-                div
-                    h4 Available proposals
-                    div(ng-repeat="proposition in propositions")
-                        button.btn.btn-info(ng-click="votePour(proposition)") {{proposition.label}}
-                            span.glyphicon.glyphicon-chevron-right
+                .row
+                    .col-md-8.col-md-offset-4
+                        .row.participation
+                            .col-md-3
+                                label Available proposals
+                                div(ng-repeat="proposition in propositions")
+                                    a.btn.btn-info.btn-block(ng-click="votePour(proposition)") {{proposition.label}}
+                                        span.glyphicon.glyphicon-chevron-right
 
 
-                div
-                    h4 Your vote
-                    div(ng-repeat="proposition in vote.proposals")
-                        .btn-group
-                            button.btn.btn-success(ng-click="annuleVotePour(proposition)")
-                                span.glyphicon.glyphicon-chevron-left
-                                | {{proposition.label}}
-                            button.btn.btn-success(ng-if="!$first", ng-click="monte(proposition)")
-                                span.glyphicon.glyphicon-chevron-up
-                            button.btn.btn-success(ng-if="!$last", ng-click="descend(proposition)")
-                                span.glyphicon.glyphicon-chevron-down
+                            .col-md-3
+                                label Your vote
+                                div(ng-repeat="proposition in vote.proposals")
 
-                button(type="submit").btn.btn-primary Vote !
+                                    a.btn.btn-success(ng-click="annuleVotePour(proposition)")
+                                        span.glyphicon.glyphicon-chevron-left
+                                        | {{proposition.label}}
+                                    .btn-group-vertical
+                                        a.btn.btn-success.btn-xs(ng-if="!$first", ng-click="monte(proposition)")
+                                            span.glyphicon.glyphicon-chevron-up
+                                        a.btn.btn-success.btn-xs(ng-if="!$last", ng-click="descend(proposition)")
+                                            span.glyphicon.glyphicon-chevron-down
+                .clearfix
+                .action
+                    button(type="submit").btn.btn-primary.btn-lg Vote !
 
 block js
     != renderJs("sondage")
