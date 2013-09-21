@@ -31,6 +31,7 @@ module.exports = function (assets) {
     ]);
 
     bundleJs('sondage', [
+        '/public/app/directives/disqus.js',
         '/public/app/sondage/_module.js',
         '/public/app/sondage/sondage_ressource.js',
         '/public/app/proposition/_module.js',

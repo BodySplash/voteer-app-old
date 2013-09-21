@@ -3,7 +3,9 @@ extends include/layout
 block content
     div(ng-app='pages.sondage', ng-controller="SondageControleur")
         mixin headerSondage()
-
+        .reseaux-sociaux
+        a.twitter-share-button(href="http://twitter.com/share", data-count="horizontal", data-lang="fr") tweet
+        | <g:plusone size="medium"></g:plusone>
         .well
             h3 Participate :
             form(ng-controller="VoteControleur", ng-submit="valideVote()")
@@ -20,9 +22,10 @@ block content
                                 label Available proposals
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in propositions")
-                                        h5.list-group-item-heading {{proposition.label}}
+                                        h5.list-group-item-heading.text-info
+                                            strong {{proposition.label}}
                                         p.list-group-item-text
-                                            button.btn.btn-success(ng-click="votePour(proposition)", type="button")
+                                            button.btn.btn-info(ng-click="votePour(proposition)", type="button")
                                                 | Select
                                                 span.glyphicon.glyphicon-chevron-right
 
@@ -31,10 +34,11 @@ block content
                                 label Your vote
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in vote.proposals")
-                                        h5.list-group-item-heading {{proposition.label}}
+                                        h5.list-group-item-heading.text-success
+                                            strong {{proposition.label}}
                                         p.list-group-item-text
                                             .btn-group
-                                                button.btn.btn-danger(type="button", ng-click="annuleVotePour(proposition)")
+                                                button.btn.btn-info(type="button", ng-click="annuleVotePour(proposition)")
                                                     span.glyphicon.glyphicon-chevron-left
                                                     | Unselect
                                                 button.btn.btn-default(type="button", ng-if="!$first", ng-click="monte(proposition)")
@@ -44,5 +48,9 @@ block content
                 .action
                     button(type="submit").btn.btn-primary.btn-lg Vote !
 
+        div(ng-if="sondage.withComments", disqus)
+
 block js
     != renderJs("sondage")
+    script(type="text/javascript", src="//platform.twitter.com/widgets.js")
+    script(type="text/javascript", src="http://apis.google.com/js/plusone.js")
