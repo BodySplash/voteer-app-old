@@ -19,7 +19,9 @@ block content
                     .col-md-8.col-md-offset-4
                         .row.participation
                             .col-md-4
-                                label Available proposals
+                                label
+                                    span.label.label-primary 1
+                                    | Pick proposals
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in propositions")
                                         h5.list-group-item-heading.text-info
@@ -31,7 +33,9 @@ block content
 
 
                             .col-md-4
-                                label Your vote
+                                label
+                                    span.label.label-primary 2
+                                    | Order them
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in vote.proposals")
                                         h5.list-group-item-heading.text-success

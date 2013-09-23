@@ -21,6 +21,7 @@ module.exports = function (assets) {
     bundleJs('admin', [
         '/public/app/sondage/_module.js',
         '/public/app/sondage/sondage_ressource.js',
+        '/public/app/sondage/sondage_identite_provider.js',
         '/public/app/proposition/_module.js',
         '/public/app/proposition/propositions_sondage_ressource.js',
         '/public/app/proposition/proposition_sondage_ressource.js',
@@ -34,6 +35,7 @@ module.exports = function (assets) {
         '/public/app/directives/disqus.js',
         '/public/app/sondage/_module.js',
         '/public/app/sondage/sondage_ressource.js',
+        '/public/app/sondage/sondage_identite_provider.js',
         '/public/app/proposition/_module.js',
         '/public/app/proposition/propositions_sondage_ressource.js',
         '/public/app/vote/_module.js',
@@ -41,6 +43,14 @@ module.exports = function (assets) {
         '/public/app/pages/sondage/_module.js',
         '/public/app/pages/sondage/vote_controleur.js',
         '/public/app/pages/sondage/sondage_controleur.js',
+    ]);
+
+    bundleJs('resultat', [
+        '/public/app/sondage/_module.js',
+        '/public/app/sondage/sondage_identite_provider.js',
+        '/public/app/classement/_module.js',
+        '/public/app/classement/classement_sondage_ressource.js',
+        '/public/app/pages/resultat/resultat_controleur.js',
     ]);
 
     assets.addCss('/public/bootstrap/css/bootstrap.css');

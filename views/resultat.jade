@@ -3,7 +3,12 @@ block content
     .page-header
         h1 Poll Result
 
-    .well
+    .well(ng-app="pages.resultat", ng-controller="ResultatControleur")
         .container
-            h2 And the winner is...
+            h2 And the winner is {{premier}}
+            ul
+                li(ng-repeat="proposition in classement") {{proposition}}
     a(href="/polls/#{pollId}") Return to the poll
+
+block js
+    != renderJs("resultat")

@@ -2,11 +2,8 @@
     "use strict";
 
     angular.module("pages.sondage")
-        .controller('SondageControleur', ['$scope', '$window', 'SondageRessource', function($scope, $window, Sondage) {
-            var uri = new URI($window.location);
-            var pathArray = uri.path().split("/");
-            var idSondage = pathArray[2];
-            $scope.sondage = Sondage.get({ id : idSondage}, function() {
+        .controller('SondageControleur', ['$scope', 'IdentiteSondage', 'SondageRessource', function($scope, identiteSondage, Sondage) {
+            $scope.sondage = Sondage.get({ id : identiteSondage.id}, function() {
                 $scope.$broadcast('SondageChargé');
             });
         }]);

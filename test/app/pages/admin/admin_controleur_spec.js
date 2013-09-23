@@ -6,11 +6,12 @@ describe("Admin controleur", function () {
         Sondage = jasmine.createSpyObj("Sondage", ['get']);
 
     beforeEach(function () {
-        angular.mock.module("sondage.ressource")
+        angular.mock.module("sondage.ressource");
+        angular.mock.module("sondage.utils");
         angular.mock.module("pages.admin");
     });
 
-    beforeEach(inject(function ($controller, $rootScope, $location) {
+    beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
         controleur = $controller("AdminControleur", {
             $scope: scope,
@@ -38,7 +39,10 @@ describe("Admin controleur", function () {
                 controleur = $controller("AdminControleur", {
                     $scope: scope,
                     SondageRessource: Sondage,
-                    $window : {location : "http://test.com/polls/unId/admin?key=laKey"}
+                    IdentiteSondage : {
+                    id : "unId",
+                        key : "laKey"
+                }
                 });
             }));
 
