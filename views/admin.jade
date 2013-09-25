@@ -9,36 +9,69 @@ block content
                 Vote link :
                 a(ng-href="/polls/{{sondage.id}}") <span ng-bind="'/polls/' + sondage.id">
 
-            .well(ng-cloak="", ng-controller="ConfigurationSondageControleur")
-                h4 Votes are :
-                .btn-group(data-toggle="buttons")
-                    label.btn.btn-primary(ng-class="{Privee:'active'}[sondage.visibility]", ng-click="changeVisibilite('Privee')")
-                        input(type="radio", name="visibility", value="Privee")
-                        | Private
-                    label.btn.btn-primary(ng-class="{Public:'active'}[sondage.visibility]", ng-click="changeVisibilite('Public')")
-                        input(type="radio", name="visibility", value="Public")
-                        | Public
-                h4 Comments are :
-                .btn-group(data-toggle="buttons")
-                    label.btn.btn-primary(ng-class="{active : !sondage.withComments}", ng-click="changeCommentaires(false)")
-                        input(type="radio", name="withComments", value="false")
-                        | Disabled
-                    label.btn.btn-primary(ng-class="{active : sondage.withComments}", ng-click="changeCommentaires(true)")
-                        input(type="radio", name="withComments", value="true")
-                        | Enabled
-                h4 Proposals :
+        .div(ng-cloak="", ng-controller="ConfigurationSondageControleur")
+            .panel.panel-default
+                .panel-heading
+                    h4 Configuration
+                .panel-body
+                    div
+                        .col-lg-2
+                            label Votes are :
+                        .col-lg-10
+                            .btn-group(data-toggle="buttons")
+                                label.btn.btn-primary(ng-class="{Privee:'active'}[sondage.visibility]", ng-click="changeVisibilite('Privee')")
+                                    input(type="radio", name="visibility", value="Privee")
+                                    | Private
+                                label.btn.btn-primary(ng-class="{Public:'active'}[sondage.visibility]", ng-click="changeVisibilite('Public')")
+                                    input(type="radio", name="visibility", value="Public")
+                                    | Public
+                    div
+                        .col-lg-2
+                            label Comments are :
+                        .col-lg-10
+                            .btn-group(data-toggle="buttons")
+                                label.btn.btn-primary(ng-class="{active : !sondage.withComments}", ng-click="changeCommentaires(false)")
+                                    input(type="radio", name="withComments", value="false")
+                                    | Disabled
+                                label.btn.btn-primary(ng-class="{active : sondage.withComments}", ng-click="changeCommentaires(true)")
+                                    input(type="radio", name="withComments", value="true")
+                                    | Enabled
 
-                div(ng-controller="PropositionsSondageControleur")
+            .panel.panel-default
+                .panel-heading
+                    h4 Proposals
+                .panel-body
+                    div(ng-controller="PropositionsSondageControleur")
+                        table.table
+                            tr(ng-repeat="proposition in propositions")
+                                td(ng-bind="proposition.label")
+                                td
+                                    button.btn.btn-danger(ng-click="supprimeProposition(proposition)")
+                                        span.glyphicon.glyphicon-trash Delete
+                            tfoot
+                                td(colspan=2)
+                                    input.form-control(type="text", placeholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
+
+            .panel.panel-default
+                .panel-heading
+                    h4 Votes
+                .panel-body(ng-controller="VotesSondageControleur")
                     table.table
-                        tr(ng-repeat="proposition in propositions")
-                            td(ng-bind="proposition.label")
-                            td
-                                button.btn.btn-danger(ng-click="supprimeProposition(proposition)")
-                                    span.glyphicon.glyphicon-trash Delete
-                        tfoot
-                            td(colspan=2)
-                                input.form-control(type="text", placeholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
-
+                        thead
+                            tr
+                                th Participant
+                                th Vote
+                                th
+                        tbody
+                            tr(ng-repeat="vote in votes")
+                                td(ng-bind="vote.participant")
+                                td
+                                    span(ng-repeat="choix in vote.choices")
+                                        | {{choix}}
+                                        span(ng-if="!$last"), 
+                                td
+                                    button.btn.btn-danger(ng-click="supprimeVote(vote)")
+                                        span.glyphicon.glyphicon-trash Delete
 
 block js
     != renderJs("admin")

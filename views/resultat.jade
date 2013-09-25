@@ -5,7 +5,7 @@ block content
             h1 And the winner is
                 span.label.label-success(ng-bind="premier.label")
             p
-                h2 Complete order
+                h2 Ranking
                 ol
                     li(ng-repeat="proposition in classement", ng-bind="proposition.label")
     a(href="/polls/#{pollId}") Return to the poll

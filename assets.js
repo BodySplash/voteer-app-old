@@ -24,10 +24,14 @@ module.exports = function (assets) {
         '/public/app/sondage/sondage_identite_provider.js',
         '/public/app/proposition/_module.js',
         '/public/app/proposition/propositions_sondage_ressource.js',
+        '/public/app/vote/_module.js',
+        '/public/app/vote/votes_sondage_ressource.js',
+        '/public/app/vote/vote_sondage_ressource.js',
         '/public/app/proposition/proposition_sondage_ressource.js',
         '/public/app/pages/admin/_module.js',
         '/public/app/pages/admin/configuration_sondage_controleur.js',
         '/public/app/pages/admin/propositions_sondage_controleur.js',
+        '/public/app/pages/admin/votes_sondage_controleur.js',
         '/public/app/pages/admin/admin_controleur.js'
     ]);
 
