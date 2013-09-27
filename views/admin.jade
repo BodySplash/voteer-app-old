@@ -52,11 +52,13 @@ block content
                                 td(colspan=2)
                                     input.form-control(type="text", placeholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
 
-            .panel.panel-default
+            .panel.panel-default(ng-controller="VotesSondageControleur")
                 .panel-heading
                     h4 Votes
-                .panel-body(ng-controller="VotesSondageControleur")
-                    table.table
+                        span.badge.badge-default {{votes.length}}
+                .panel-body
+                    span(ng-show="votes.length == 0") No vote yet
+                    table.table(ng-show="votes.length > 0")
                         thead
                             tr
                                 th Participant
