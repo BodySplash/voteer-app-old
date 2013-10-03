@@ -8,9 +8,9 @@ console.log("Configuring app for " + app.get('env') + " environment");
 BundleUp(app, __dirname + "/assets.js" , {
     staticRoot: __dirname + '/public/',
     staticUrlRoot:'/',
-    bundle: app.get("env") === 'production',
-    minifyCss: app.get("env") === 'production',
-    minifyJs: app.get("env") === 'production'
+    bundle: app.get("env") !== 'development',
+    minifyCss: app.get("env") !== 'development',
+    minifyJs: app.get("env") !== 'development'
 });
 
 app.configure(function() {
@@ -21,18 +21,20 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.static(__dirname + '/public/'));
-
+    app.use(express.errorHandler());
 
 });
 
 app.configure('development', function() {
 	app.use(express.logger('dev'));
-	app.use(express.errorHandler());
     app.locals.apiUrl = 'http://localhost\\\\:8182';
 });
 
+app.configure('integration', function() {
+   app.locals.apiUrl = 'http://voteer-api-itg.herokuapp.com';
+});
+
 app.configure('production', function() {
-    app.use(express.errorHandler());
     app.locals.apiUrl = 'http://api.voteer.com';
 });
 
