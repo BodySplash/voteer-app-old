@@ -31,7 +31,7 @@ app.configure('development', function() {
 });
 
 app.configure('integration', function() {
-   app.locals.apiUrl = 'http://voteer-api-itg.herokuapp.com';
+   app.locals.apiUrl = 'http://api-itg.voteer.com';
 });
 
 app.configure('production', function() {
