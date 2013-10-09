@@ -10,7 +10,7 @@ block content
         ul.nav.nav-tabs
             li.active
                 a(href="#participate", data-toggle="tab") Participate
-            li
+            li(ng-show="afficheVote()")
                 a(href="#votes", data-toggle="tab") Existing votes
             li(ng-show="sondage.withComments")
                 a(href="#comments", data-toggle="tab") Comments
@@ -60,11 +60,21 @@ block content
                                                         span.glyphicon.glyphicon-chevron-down
                     .action
                         button(type="submit", loading="Vote...", ng-disabled="creation").btn.btn-primary.btn-lg Vote !
-            .tab-pane#votes
-                div(ng-show="sondage.visibility == 'Private'")
-                    | Votes are private
-                div(ng-show="sondage.visibility == 'Public'")
-                    | Votes :
+            .tab-pane#votes(ng-show="afficheVote()", ng-controller="VotesSondageControleur")
+                span(ng-show="votes.length == 0") No vote yet
+                table.table(ng-show="votes.length > 0")
+                    thead
+                        tr
+                            th Participant
+                            th Vote
+                    tbody
+                        tr(ng-repeat="vote in votes")
+                            td(ng-bind="vote.participant || 'Anonymous'")
+                            td
+                                span(ng-repeat="choix in vote.choices")
+                                    | {{choix}}
+                                    span(ng-if="!$last"), 
+
             .tab-pane#comments
                 div(ng-if="sondage.withComments", disqus)
 

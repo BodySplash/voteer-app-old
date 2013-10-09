@@ -6,5 +6,9 @@
             $scope.sondage = Sondage.get({ id : identiteSondage.id}, function() {
                 $scope.$broadcast('SondageChargé');
             });
+
+            $scope.afficheVote = function() {
+                return $scope.sondage.visibility == 'Public';
+            }
         }]);
 })();

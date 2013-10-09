@@ -47,6 +47,7 @@ module.exports = function (assets) {
         '/public/app/vote/votes_sondage_ressource.js',
         '/public/app/pages/sondage/_module.js',
         '/public/app/pages/sondage/vote_controleur.js',
+        '/public/app/pages/sondage/votes_sondage_controleur.js',
         '/public/app/pages/sondage/sondage_controleur.js',
     ]);
 
