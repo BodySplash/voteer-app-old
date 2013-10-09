@@ -1,0 +1,44 @@
+extends include/layout
+
+block content
+    header.entete-sondage
+        h1 Help
+    .row
+        .col-md-6
+            h2 I want to participate to a poll
+            p Just follow the link your friend gave you. Now, on to voting !
+            ul
+                li
+                    span.label.label-info pick propositions
+                    |  by clicking on it,
+                li
+                    span.label.label-info order propositions
+                    |  by using arrow buttons,
+                li
+                    | provide a
+                    span.label.label-info name
+                    |  if you wish,
+                li
+                    span.label.label-info click
+                    |  the vote button,
+                li if comments are enabled, you can share your point of view with other voters.
+        .col-md-6
+            h2 I want to create a poll
+            p Creating a poll is eaysy :
+            ul
+                li on the
+                    a(href="/") front page
+                    |, enter a
+                    span.label.label-info poll name
+                    |,
+                li
+                    span.label.label-info click
+                    |  the create button,
+                li you are now on the poll making page
+                li configure your poll, with the numerous options provided,
+                li enter as many
+                    span.label.label-info propositions
+                    | as you like,
+                li
+                    span.label.label-info share
+                    |  the vote link with your friends or teammates using the social buttons.
