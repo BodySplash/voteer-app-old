@@ -1,5 +1,4 @@
 module.exports = function (assets) {
-
     var _ = require("underscore");
     assets.root = __dirname;
     bundleJs('base', [
