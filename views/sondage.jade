@@ -59,7 +59,7 @@ block content
                                                     button.btn.btn-default(type="button", ng-if="!$last", ng-click="descend(proposition)")
                                                         span.glyphicon.glyphicon-chevron-down
                     .action
-                        button(type="submit").btn.btn-primary.btn-lg Vote !
+                        button(type="submit", loading="Vote...", ng-disabled="creation").btn.btn-primary.btn-lg Vote !
             .tab-pane#votes
                 div(ng-show="sondage.visibility == 'Private'")
                     | Votes are private
@@ -71,4 +71,4 @@ block content
 block js
     != renderJs("sondage")
     script(type="text/javascript", src="//platform.twitter.com/widgets.js")
-    script(type="text/javascript", src="http://apis.google.com/js/plusone.js")
+    script(type="text/javascript", src="//apis.google.com/js/plusone.js")

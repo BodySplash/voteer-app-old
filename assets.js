@@ -9,7 +9,8 @@ module.exports = function (assets) {
         '/assets/bower_components/angular/angular.js',
         '/assets/bower_components/angular/angular-resource.js',
         '/assets/bower_components/angular-ui/build/angular-ui.js',
-        '/assets/bower_components/uri.js/src/URI.js'
+        '/assets/bower_components/uri.js/src/URI.js',
+        '/public/app/directives/loading.js'
     ]);
 
     bundleJs('accueil', [

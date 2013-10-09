@@ -8,6 +8,9 @@
                 name : "",
                 proposals : []
             };
+
+            $scope.creation = false;
+
             $scope.$on("SondageChargé", chargePropositions);
 
             $scope.votePour = function(proposition) {
@@ -35,6 +38,7 @@
             };
 
             $scope.valideVote = function() {
+                $scope.creation = true;
                 Votes.save({id: $scope.sondage.id}, $scope.vote, function() {
                     $window.location = "/thankyou?pollId=" + $scope.sondage.id
                 });

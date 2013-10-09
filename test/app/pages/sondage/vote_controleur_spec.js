@@ -102,6 +102,12 @@ describe("Vote controleur", function () {
 
                 expect(Votes.save).toHaveBeenCalledWith({id : "unId"}, scope.vote, jasmine.any(Function));
             });
+
+            it("doit désactiver le bouton de vote", function() {
+                scope.valideVote();
+
+                expect(scope.creation).toBeTruthy();
+            })
         });
     });
 

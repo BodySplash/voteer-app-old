@@ -38,7 +38,13 @@ describe('Accueil Controleur', function () {
         expect(Sondages.save).toHaveBeenCalledWith(scope.poll, jasmine.any(Function));
     });
 
-    it("doit pouvoir rediriger après création", inject(function($window) {
+    it("doit désactiver le bouton", function() {
+       scope.creeSondage();
+
+        expect(scope.creation).toBeTruthy();
+    });
+
+    it("doit pouvoir rediriger après création", function() {
        Sondages.save.andCallFake(function(poll, callback) {
            callback({id : "unId", adminKey : "uneAdminKey"})
        });
@@ -47,5 +53,5 @@ describe('Accueil Controleur', function () {
 
 
         expect(window.location.replace).toHaveBeenCalledWith("/polls/unId/admin?key=uneAdminKey");
-    }));
+    });
 });
