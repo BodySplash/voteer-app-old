@@ -46,11 +46,17 @@ block content
                             tr(ng-repeat="proposition in propositions")
                                 td(ng-bind="proposition.label")
                                 td
-                                    button.btn.btn-danger(ng-click="supprimeProposition(proposition)")
+                                    button.btn.btn-danger(ng-click="supprimeProposition(proposition)", ng-disabled="!ajoutPropositionPossible")
                                         span.glyphicon.glyphicon-trash Delete
                             tfoot
-                                td(colspan=2)
-                                    input.form-control(type="text", placeholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
+                                tr(ng-show="ajoutPropositionPossible")
+                                    td(colspan=2)
+                                        input.form-control(type="text", placeholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
+                                tr(ng-show="!ajoutPropositionPossible")
+                                    td(colspan=2)
+                                        .alert.alert-warning
+                                            | Votes exist on this poll
+
 
             .panel.panel-default(ng-controller="VotesSondageControleur")
                 .panel-heading

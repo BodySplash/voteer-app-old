@@ -24,6 +24,32 @@ describe("Admin controleur", function () {
         expect(controleur).not.toBeUndefined();
     });
 
+    it("doit dire si l'ajout de proposition est possible", function() {
+       expect(scope.ajoutPropositionPossible).toBeTruthy();
+    });
+
+    describe("Etant donné que le controleur de vote signale des votes", function() {
+
+        beforeEach(inject(function($rootScope) {
+           $rootScope.$broadcast("VotesExistent");
+        }));
+
+        it("Doit demander de ne pas permettre d'ajouter ou supprimer des propositions", function() {
+            expect(scope.ajoutPropositionPossible).toBeFalsy();
+        });
+    });
+
+    describe("Etant donné que le controleur de vote signale qu'il n'y a plus de vote", function() {
+
+        beforeEach(inject(function($rootScope) {
+            $rootScope.$broadcast("PlusDeVote");
+        }));
+
+        it("Doit demander de  permettre d'ajouter ou supprimer des propositions", function() {
+            expect(scope.ajoutPropositionPossible).toBeTruthy();
+        });
+    });
+
 
     describe("Étant donné une url correcte", function () {
 

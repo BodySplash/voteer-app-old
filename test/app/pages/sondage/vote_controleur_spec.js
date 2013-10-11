@@ -48,6 +48,18 @@ describe("Vote controleur", function () {
         expect(scope.propositions).toBe(propositions);
     });
 
+    it("Doit dire qu'il est possible de voter", function() {
+        scope.sondage = {
+            id: "unId"
+        };
+        var propositions = [{label: "test"}];
+        Propositions.query.andReturn(propositions)
+
+        scope.$broadcast("SondageChargé");
+
+        expect(scope.votePossible()).toBeTruthy();
+    });
+
     describe("Étant donné une liste de proposition", function () {
 
         var listePropositions = [
@@ -107,7 +119,11 @@ describe("Vote controleur", function () {
                 scope.valideVote();
 
                 expect(scope.creation).toBeTruthy();
-            })
+            });
+
+            it("Doit être possible de continuer a voter", function() {
+               expect(scope.votePossible()).toBeTruthy();
+            });
         });
     });
 

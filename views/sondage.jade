@@ -15,9 +15,11 @@ block content
             li(ng-show="sondage.withComments")
                 a(href="#comments", data-toggle="tab") Comments
         .tab-content
-            .tab-pane.active#participate
+            .tab-pane.active#participate(ng-controller="VoteControleur")
                 h3 Participate :
-                form(ng-controller="VoteControleur", ng-submit="valideVote()")
+                .alert.alert-warning(ng-show="!votePossible()")
+                    | No proposals yet for this vote
+                form(ng-submit="valideVote()", ng-show="votePossible()")
                     .form-group
                         label(for="nom") Your name or nickname
                         input.form-control(type="text", placeholder="Enter name or nickname", ng-model="vote.name")
@@ -25,7 +27,7 @@ block content
 
                     label Proceed with your vote !
                     .row(ng-cloak)
-                        .col-md-8.col-md-offset-4
+                        .col-md-8.col-md-offset-3
                             .row.participation
                                 .col-md-4
                                     label
@@ -41,7 +43,7 @@ block content
                                                     span.glyphicon.glyphicon-chevron-right
 
 
-                                .col-md-4
+                                .col-md-5
                                     label
                                         span.label.label-primary 2
                                         | Order them

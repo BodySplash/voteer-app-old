@@ -80,5 +80,6 @@ describe("Propositions sondage controleur", function () {
 
             expect(scope.propositions.length).toBe(1);
         });
+
     });
 });

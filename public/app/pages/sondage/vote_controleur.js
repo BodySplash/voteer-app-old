@@ -13,6 +13,10 @@
 
             $scope.$on("SondageChargé", chargePropositions);
 
+            $scope.votePossible = function() {
+              return ($scope.propositions || []).length > 0 || choixEnCours().length > 0;
+            };
+
             $scope.votePour = function(proposition) {
               $scope.propositions = _.without($scope.propositions, proposition);
               choixEnCours().push(proposition);
@@ -46,7 +50,7 @@
 
 
             function choixEnCours() {
-                return $scope.vote.proposals;
+                return $scope.vote.proposals || [];
             }
 
             function changeChoixEnCours(proposals) {
