@@ -38,7 +38,6 @@ app.configure('production', function() {
     app.locals.apiUrl = 'http://voteer-api-prd.herokuapp.com';
 });
 
-
 require('./routes')(app);
 
 var port = process.env.PORT || 5000;
