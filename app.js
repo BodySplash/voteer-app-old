@@ -35,7 +35,7 @@ app.configure('integration', function() {
 });
 
 app.configure('production', function() {
-    app.locals.apiUrl = 'http://api.voteer.com';
+    app.locals.apiUrl = 'http://voteer-api-prd.herokuapp.com';
 });
 
 
