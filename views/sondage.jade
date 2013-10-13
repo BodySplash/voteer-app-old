@@ -18,7 +18,7 @@ block content
             .tab-pane.active#participate(ng-controller="VoteControleur")
                 h3 Participate :
                 .alert.alert-warning(ng-show="!votePossible()")
-                    | No proposals yet for this vote
+                    | No proposals for this poll yet
                 form(ng-submit="valideVote()", ng-show="votePossible()")
                     .form-group
                         label(for="nom") Your name or nickname
