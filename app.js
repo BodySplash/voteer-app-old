@@ -1,18 +1,11 @@
 var express = require("express"),
-	path = require('path'),
-    BundleUp = require('bundle-up');
+	path = require('path');
 
 
 var app = express();
 
 console.log("Configuring app for " + app.get('env') + " environment");
-/*BundleUp(app, __dirname + "/assets.js" , {
-    staticRoot: __dirname + '/public/',
-    staticUrlRoot:'/',
-    bundle: app.get("env") !== 'development',
-    minifyCss: app.get("env") !== 'development',
-    minifyJs: app.get("env") !== 'development'
-});*/
+
 
 app.configure(function() {
 	app.set('views', path.join(__dirname, '/views'));
@@ -31,7 +24,7 @@ app.configure('development', function() {
     app.locals.apiUrl = 'http://localhost\\\\:8182';
 });
 
-app.configure('integration', function() {
+app.configure('staging', function() {
    app.locals.apiUrl = 'http://api-itg.voteer.com';
 });
 
