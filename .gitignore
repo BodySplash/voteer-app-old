@@ -1,4 +1,4 @@
 assets/bower_components
 node_modules
-public/generated
+public/assets
 *.iml

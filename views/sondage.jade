@@ -81,6 +81,6 @@ block content
                 div(ng-if="sondage.withComments", disqus)
 
 block js
-    != renderJs("sondage")
+    != nap.js("sondage")
     script(type="text/javascript", src="//platform.twitter.com/widgets.js")
     script(type="text/javascript", src="//apis.google.com/js/plusone.js")

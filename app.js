@@ -2,16 +2,17 @@ var express = require("express"),
 	path = require('path'),
     BundleUp = require('bundle-up');
 
+
 var app = express();
 
 console.log("Configuring app for " + app.get('env') + " environment");
-BundleUp(app, __dirname + "/assets.js" , {
+/*BundleUp(app, __dirname + "/assets.js" , {
     staticRoot: __dirname + '/public/',
     staticUrlRoot:'/',
     bundle: app.get("env") !== 'development',
     minifyCss: app.get("env") !== 'development',
     minifyJs: app.get("env") !== 'development'
-});
+});*/
 
 app.configure(function() {
 	app.set('views', path.join(__dirname, '/views'));
@@ -38,6 +39,7 @@ app.configure('production', function() {
     app.locals.apiUrl = 'http://api.voteer.com';
 });
 
+require('./assets')(app);
 require('./routes')(app);
 
 var port = process.env.PORT || 5000;
