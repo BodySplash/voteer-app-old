@@ -30,19 +30,22 @@ html
 
             .collapse.navbar-collapse
                 ul.nav.navbar-nav
+
                     li(class=classe==='accueil'?'active':'')
                         a(href="/") Home
-                    li(classe=classe==='aide'?'active':'')
+                    li(class=classe==='aide'?'active':'')
                         a(href="/help") Help
         .container
             block content
             hr
             footer
-                a(class="btn learn-more", href="http://en.wikipedia.org/wiki/Condorcet_method", target="_blank")
+                a.learn-more(href="http://en.wikipedia.org/wiki/Condorcet_method", target="_blank")
                     span.glyphicon.glyphicon-info-sign
-                    span Learn More
+                    | Learn More
                 | #{version_courante}
-                a(href="http://www.arpinum.fr") &copy; Arpinum
+                a(href="http://www.arpinum.fr")
+                    span.glyphicon.glyphicon-copyright-mark
+                    |Arpinum
                 |  2012-2013
 
 

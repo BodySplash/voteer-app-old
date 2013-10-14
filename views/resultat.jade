@@ -8,7 +8,7 @@ block content
                 h2 Ranking
                 ol
                     li(ng-repeat="proposition in classement", ng-bind="proposition.label")
-    a(href="/polls/#{pollId}") Return to the poll
+                a.btn.btn-default(href="/polls/#{pollId}") Return to the poll
 
 block js
     != nap.js("resultat")

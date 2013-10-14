@@ -12,7 +12,7 @@ block content
             form(ng-submit='creeSondage()', ng-controller='AccueilControleur')
                 .control-group
                     .controls
-                        input(type='text', ng-model='poll.name', placeholder="Poll name")
+                        input(type='text', ng-model='poll.name', placeholder="Poll name", required=true)
                         span.help-inline
                     button.btn.btn-primary.btn-lg(type='submit', loading="Create...", ng-disabled="creation")
                         | Create
