@@ -16,6 +16,7 @@ block content
                 a(href="#comments", data-toggle="tab") Comments
         .tab-content
             .tab-pane.active#participate(ng-controller="VoteControleur")
+                div(loader="propositionsChargees")
                 h3 Participate :
                 .alert.alert-warning(ng-show="!votePossible()")
                     | No proposals for this poll yet

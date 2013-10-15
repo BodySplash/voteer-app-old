@@ -1,7 +1,7 @@
 (function (angular) {
     "use strict";
 
-    angular.module("ngVoteer", [])
+    angular.module("ngVoteer")
         .directive("loading", function () {
 
             return function (scope, element, attrs) {

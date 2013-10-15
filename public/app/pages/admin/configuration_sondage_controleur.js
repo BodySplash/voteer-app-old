@@ -14,6 +14,10 @@
                 metAJourSondage();
             };
 
+            $scope.$on("SondageChargé", function() {
+                $scope.configurationChargee = true;
+            })
+
             function metAJourSondage() {
                 Sondage.update({key : $scope.sondage.adminKey}, $scope.sondage);
             }

@@ -14,6 +14,7 @@
             });
 
             $scope.sondage = Sondage.get({ id : identiteSondage.id, key:identiteSondage.key}, function() {
+                $scope.sondageCharge = true;
                 $scope.$broadcast('SondageChargé');
             });
         }]);

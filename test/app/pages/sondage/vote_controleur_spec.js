@@ -33,7 +33,7 @@ describe("Vote controleur", function () {
 
         scope.$broadcast("SondageChargé");
 
-        expect(Propositions.query).toHaveBeenCalledWith({id: "unId"});
+        expect(Propositions.query).toHaveBeenCalledWith({id: "unId"}, jasmine.any(Function));
     });
 
     it("Doit passer les propositions au scope", function () {
@@ -46,6 +46,19 @@ describe("Vote controleur", function () {
         scope.$broadcast("SondageChargé");
 
         expect(scope.propositions).toBe(propositions);
+    });
+
+    it("Doit dire que les propositions sont chargées", function() {
+        scope.sondage = {
+            id: "unId"
+        };
+        Propositions.query.andCallFake(function(options, callback) {
+           callback();
+        });
+
+        scope.$broadcast("SondageChargé");
+
+        expect(scope.propositionsChargees).toBe(true);
     });
 
     it("Doit dire qu'il est possible de voter", function() {

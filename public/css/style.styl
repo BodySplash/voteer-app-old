@@ -96,9 +96,32 @@ form
     .col-lg-10
         padding: 2px
 
-/* hack version 2.0.2 sur le positionnement du content de la liste des votes */
-.tab-content
-    display inherit
-    overflow hidden
-    width inherit
+    .panel-body
+        position relative
 
+.admin
+.sondage
+    header
+        position relative
+    .tab-pane
+        position relative
+
+.resultat
+    .jumbotron
+        h1
+        h2
+            text-align center
+
+.loading
+    position absolute
+    top 0
+    left 0
+    opacity 0.8
+    background-color grey
+    width 100%
+    height 100%
+    z-index 1000
+    text-align center
+    padding-top 1%
+    h3
+        margin 0

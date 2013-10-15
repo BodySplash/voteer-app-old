@@ -4,8 +4,12 @@
     angular.module("pages.admin")
         .controller("PropositionsSondageControleur", ['$scope', 'PropositionsSondageRessource', 'PropositionSondageRessource', function ($scope, Propositions, Proposition) {
 
+            $scope.propositionsChargees = false;
+
             $scope.$on("SondageChargé", function () {
-                $scope.propositions = Propositions.query({id: $scope.sondage.id});
+                $scope.propositions = Propositions.query({id: $scope.sondage.id}, function() {
+                    $scope.propositionsChargees = true;
+                });
             });
 
             $scope.ajouteProposition = function () {

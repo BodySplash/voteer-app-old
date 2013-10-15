@@ -19,6 +19,12 @@ describe("Configuration sondage controleur", function() {
         });
     }));
 
+    it("doit dire que le sondage est chargé", function() {
+       scope.$emit("SondageChargé")
+
+        expect(scope.configurationChargee).toBeTruthy()
+    });
+
     it("doit être défini", function() {
        expect(controleur).not.toBeUndefined();
     });

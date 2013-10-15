@@ -32,18 +32,25 @@ describe("Propositions sondage controleur", function () {
                 id: "id",
                 adminKey: "key"
             };
-            Propositions.query.andReturn([
-                {label: "un"},
-                {label: "deux"}
-            ]);
+            Propositions.query.andCallFake(function(params, callback) {
+                callback();
+                return [
+                    {label: "un"},
+                    {label: "deux"}
+                ];
+            })
             scope.$broadcast("SondageChargé");
         });
 
         it("doit charger les propositions", function () {
-            expect(Propositions.query).toHaveBeenCalledWith({id: "id"});
+            expect(Propositions.query).toHaveBeenCalledWith({id: "id"}, jasmine.any(Function));
             expect(scope.propositions).not.toBeUndefined();
             expect(scope.propositions[0].label).toBe("un");
-        })
+        });
+
+        it("doit dire que les propositions sont chargées", function() {
+            expect(scope.propositionsChargees).toBeTruthy()
+        });
 
         it("doit pouvoir ajouter une proposition", function () {
             scope.nouvelleProposition = "test";

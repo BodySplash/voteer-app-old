@@ -58,7 +58,9 @@
             }
 
             function chargePropositions() {
-                $scope.propositions = Propositions.query({id: $scope.sondage.id});
+                $scope.propositions = Propositions.query({id: $scope.sondage.id}, function() {
+                    $scope.propositionsChargees = true;
+                });
             }
 
         }]);
