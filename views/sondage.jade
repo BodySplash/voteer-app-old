@@ -18,7 +18,7 @@ block content
             .tab-pane.active#participate(ng-controller="VoteControleur")
                 div(loader="propositionsChargees")
                 h3 Participate :
-                .alert.alert-warning(ng-show="!votePossible()")
+                .alert.alert-warning(ng-show="!votePossible()", ng-cloak)
                     | No proposals for this poll yet
                 form(ng-submit="valideVote()", ng-show="votePossible()")
                     .form-group
@@ -33,7 +33,7 @@ block content
                                 .col-md-4
                                     label
                                         span.label.label-primary 1
-                                        | Pick proposals
+                                        | &nbsp;Pick proposals
                                     ul.list-group
                                         li.list-group-item(ng-repeat="proposition in propositions")
                                             h5.list-group-item-heading.text-info
@@ -47,7 +47,7 @@ block content
                                 .col-md-5
                                     label
                                         span.label.label-primary 2
-                                        | Order them
+                                        | &nbsp;Order them
                                     ul.list-group
                                         li.list-group-item(ng-repeat="proposition in vote.proposals")
                                             h5.list-group-item-heading.text-success

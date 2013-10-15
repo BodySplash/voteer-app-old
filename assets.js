@@ -2,7 +2,6 @@ module.exports = function (app) {
 
     global.nap = require('nap');
 
-
     nap({
         assets: {
             js: {

@@ -50,7 +50,8 @@ block content
                                 td(ng-bind="proposition.label")
                                 td
                                     button.btn.btn-danger(ng-click="supprimeProposition(proposition)", ng-disabled="!ajoutPropositionPossible")
-                                        span.glyphicon.glyphicon-trash Delete
+                                        span.glyphicon.glyphicon-trash
+                                        | &nbsp;Delete
                             tfoot
                                 tr(ng-show="ajoutPropositionPossible")
                                     td(colspan=2)
@@ -63,7 +64,7 @@ block content
 
             .panel.panel-default(ng-controller="VotesSondageControleur")
                 .panel-heading
-                    h4 Votes
+                    h4 Votes&nbsp;
                         span.badge.badge-default {{votes.length}}
                 .panel-body
                     div(loader="votesCharges")
@@ -83,7 +84,8 @@ block content
                                         span(ng-if="!$last"), 
                                 td
                                     button.btn.btn-danger(ng-click="supprimeVote(vote)")
-                                        span.glyphicon.glyphicon-trash Delete
+                                        span.glyphicon.glyphicon-trash
+                                        | &nbsp;Delete
 
 block js
     != nap.js("admin")
