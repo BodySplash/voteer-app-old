@@ -1,4 +1,4 @@
-mixin headerSondage()
+mixin headerSondage(avecReseauxSociaux)
 
     header.entete-sondage.page-header.ng-cloak
         div(loader="sondageCharge")
@@ -8,3 +8,7 @@ mixin headerSondage()
             | &nbsp;{{sondage.creationDate|date:'medium'}}
         p
             a(href="/polls/{{sondage.id}}/result") See poll result
+        if avecReseauxSociaux
+            .reseaux-sociaux
+                a.twitter-share-button(href="http://twitter.com/share", data-count="horizontal", data-lang="fr") tweet
+                | <g:plusone size="medium"></g:plusone>

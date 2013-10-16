@@ -2,7 +2,7 @@ include include/header-sondage
 extends include/layout
 block content
     div(ng-app='pages.admin', ng-controller="AdminControleur")
-        mixin headerSondage()
+        mixin headerSondage(false)
 
         .page-header
             h3#links

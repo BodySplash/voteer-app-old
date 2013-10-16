@@ -2,10 +2,7 @@ include include/header-sondage
 extends include/layout
 block content
     div(ng-app='pages.sondage', ng-controller="SondageControleur")
-        mixin headerSondage()
-        .reseaux-sociaux
-            a.twitter-share-button(href="http://twitter.com/share", data-count="horizontal", data-lang="fr") tweet
-            | <g:plusone size="medium"></g:plusone>
+        mixin headerSondage(true)
 
         ul.nav.nav-tabs
             li.active
