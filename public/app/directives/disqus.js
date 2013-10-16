@@ -7,8 +7,33 @@
 
         var shortname = 'condorcet';
 
-        function getScriptContainer() {
-            return (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
+        this.$get = [ '$window', '$rootScope', function($window, $rootScope) {
+
+
+            function commit() {
+                if (!angular.isDefined(getShortname())) {
+                    throw new Error('No disqus shortname defined');
+                } else {
+                    buildCommit($window, $rootScope);
+                }
+            }
+
+            return {
+                commit       : commit,
+                getShortname : getShortname
+            };
+        }];
+
+        function buildCommit($window, $rootScope) {
+            var uri = new URI($window.location);
+            var shortname = getShortname(),
+                container = getScriptContainer();
+            if (hasScriptTagInPlace(container, shortname)) {
+                return;
+            }
+            setGlobals(uri.fragment("").toString(), uri.fragment("").toString(), shortname, $rootScope);
+            container.appendChild(buildScriptTag(shortname));
+            container.appendChild(buildCountScriptTag(shortname));
         }
 
         function getShortname() {
@@ -16,23 +41,15 @@
         }
 
 
-        function getScriptSrc(shortname) {
-            return '//' + shortname + '.disqus.com/embed.js';
-        }
-
-        function buildScriptTag(shortname) {
-            var script = document.createElement('script');
-            script.type  = 'text/javascript';
-            script.async = true;
-            script.src   = getScriptSrc(shortname);
-            return script;
+        function getScriptContainer() {
+            return (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
         }
 
         function hasScriptTagInPlace(container, shortname) {
+
             var scripts   = container.getElementsByTagName('script'),
                 scriptSrc = getScriptSrc(shortname),
                 script, i;
-
             for (i = 0; i < scripts.length; i += 1) {
                 script = scripts[i];
                 if (~script.src.indexOf(scriptSrc)) {
@@ -43,44 +60,34 @@
             return false;
         }
 
-        function setGlobals(id, url, shortname) {
+        function setGlobals(id, url, shortname, $rootScope) {
             window.disqus_identifier = id;
-            window.disqus_url        = url;
-            window.disqus_shortname  = shortname;
+            window.disqus_url = url;
+            window.disqus_shortname = shortname;
+            window.disqus_title = window.document.title;
+            $rootScope.disqus_identifier = id;
         }
 
-        function buildCommit($window) {
-            var uri = new URI($window.location);
-            var shortname = getShortname(),
-                container = getScriptContainer();
-            if (hasScriptTagInPlace(container, shortname)) {
-                return;
-            }
-            setGlobals(uri.fragment("").toString(), uri.fragment("").toString(), shortname);
-            container.appendChild(buildScriptTag(shortname));
+        function buildScriptTag(shortname) {
+            var script = document.createElement('script');
+            script.type  = 'text/javascript';
+            script.async = true;
+            script.src   = getScriptSrc(shortname);
+            return script;
         }
 
+        function getScriptSrc(shortname) {
+            return '//' + shortname + '.disqus.com/embed.js';
+        }
 
-        this.setShortname = function(sname) {
-            shortname = sname;
-        };
+        function buildCountScriptTag(shortname) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + shortname + '.disqus.com/count.js';
+            return s;
+        }
 
-        this.$get = [ '$window', function($window) {
-
-
-            function commit() {
-                if (!angular.isDefined(getShortname())) {
-                    throw new Error('No disqus shortname defined');
-                } else {
-                    buildCommit($window);
-                }
-            }
-
-            return {
-                commit       : commit,
-                getShortname : getShortname
-            };
-        }];
     });
 
     disqusModule.directive('disqus', [ '$disqus', function($disqus) {

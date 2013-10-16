@@ -13,7 +13,7 @@ block content
             li(ng-show="afficheVote()")
                 a(href="#votes", data-toggle="tab") Existing votes
             li(ng-show="sondage.withComments")
-                a(href="#comments", data-toggle="tab") Comments
+                a(href="#disqus_thread", data-disqus-identifier="{{disqus_identifier}}", data-toggle="tab") Comments
         .tab-content
             .tab-pane.active#participate(ng-controller="VoteControleur")
                 div(loader="propositionsChargees")
@@ -78,8 +78,7 @@ block content
                                     | {{choix}}
                                     span(ng-if="!$last"), 
 
-            .tab-pane#comments
-                div(ng-if="sondage.withComments", disqus)
+            .tab-pane(ng-if="sondage.withComments", disqus)
 
 block js
     != nap.js("sondage")

@@ -2,9 +2,10 @@
     "use strict";
 
     angular.module("pages.sondage")
-        .controller('SondageControleur', ['$scope', 'IdentiteSondage', 'SondageRessource', function($scope, identiteSondage, Sondage) {
+        .controller('SondageControleur', ['$scope', '$window', 'IdentiteSondage', 'SondageRessource', function($scope, $window, identiteSondage, Sondage) {
             $scope.sondage = Sondage.get({ id : identiteSondage.id}, function() {
                 $scope.sondageCharge = true;
+                $window.document.title = $scope.sondage.name;
                 $scope.$broadcast('SondageChargé');
             });
 
