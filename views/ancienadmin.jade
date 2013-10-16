@@ -1,0 +1,11 @@
+extends include/layout
+
+block content
+    .jumbotron
+        .container
+            h2 Admin page has moved
+            p In order to enhance its security, poll administration is no longer accessible only with the admin key
+            p If you still have your poll id, you can find your admin page by forging this url :
+            p http://www.voteer.com/polls/
+                span.label.label-info {pollId}
+                |/admin?key=#{key}
