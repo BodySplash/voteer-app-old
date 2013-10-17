@@ -10,5 +10,11 @@ mixin headerSondage(avecReseauxSociaux)
             a(href="/polls/{{sondage.id}}/result") See poll result
         if avecReseauxSociaux
             .reseaux-sociaux
-                a.twitter-share-button(href="http://twitter.com/share", data-count="horizontal", data-lang="fr") tweet
-                | <g:plusone size="medium"></g:plusone>
+                span.st_googleplus(displayText='Google +')
+                span.st_facebook(displayText='Facebook')
+                span.st_buffer(displayText='Buffer')
+                span.st_twitter(displayText='Tweet')
+                span.st_linkedin(displayText='LinkedIn')
+                span.st_pinterest(displayText='Pinterest')
+                span.st_yammer(displayText='Yammer')
+                span.st_email(displayText='Email')
