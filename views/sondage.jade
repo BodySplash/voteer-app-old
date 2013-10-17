@@ -79,16 +79,10 @@ block content
 
 block js
     != nap.js("sondage")
-    script(type="text/javascript", src="//platform.twitter.com/widgets.js")
-    script(type="text/javascript", src="//apis.google.com/js/plusone.js")
-    div#fb-root
     script(type="text/javascript").
-         (function(d, s, id) {
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) return;
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=569658266439600";
-             fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
+        var switchTo5x=true;
 
-    script(type="text/javascript",  src="http://static.bufferapp.com/js/button.js")
+    script(type="text/javascript", src="http://w.sharethis.com/button/buttons.js")
+
+    script(type="text/javascript").
+        stLight.options({publisher: "666009eb-0a92-4a94-a03d-abeabcba8f41", doNotHash: false, doNotCopy: false, hashAddressBar: false});
