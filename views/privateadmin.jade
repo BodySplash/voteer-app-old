@@ -1,0 +1,15 @@
+include include/header-sondage
+extends include/layout
+block content
+    h1 Private Admin
+    div(ng-app='pages.private.admin', ng-controller="PrivateAdminControleur")
+        form(ng-submit="valideToken()", ng-hide="sondages")
+            .row.col-md-offset-4
+                .input-group.col-md-6
+                    input.form-control(type="text", placeholder="Token please !", ng-model="adminToken")
+                    span.input-group-btn
+                        button(type="submit").btn.btn-primary Go !
+        div(ng-show="sondages")
+            | Sondages
+block js
+    != nap.js("privateadmin")

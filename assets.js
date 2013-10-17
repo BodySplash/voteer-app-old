@@ -57,6 +57,12 @@ module.exports = function (app) {
                     '/public/app/classement/_module.js',
                     '/public/app/classement/classement_sondage_ressource.js',
                     '/public/app/pages/resultat/resultat_controleur.js'
+                ],
+                privateadmin: [
+                    '/public/app/sondage/_module.js',
+                    '/public/app/sondage/private_sondages_ressource.js',
+                    '/public/app/pages/private_admin/_module.js',
+                    '/public/app/pages/private_admin/private_admin_controleur.js'
                 ]
             },
             css: {
