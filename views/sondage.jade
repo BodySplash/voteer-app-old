@@ -52,10 +52,14 @@ block content
                                                 button.btn.btn-default(type="button", ng-if="!$last", ng-click="descend(proposition)")
                                                     span.glyphicon.glyphicon-chevron-down
                     .row.col-md-offset-4
-                        .input-group.action.col-md-6
-                            input.form-control(type="text", placeholder="Enter name or nickname", ng-model="vote.name")
-                            span.input-group-btn
-                                button(type="submit", loading="Vote...", ng-disabled="creation").btn.btn-primary Vote !
+                        .col-md-6.action
+                            label
+                                span.label.label-primary 3
+                            | &nbsp; Enter your name and vote !
+                            .input-group
+                                input.form-control(type="text", placeholder="Enter name or nickname", ng-model="vote.name")
+                                span.input-group-btn
+                                    button(type="submit", loading="Vote...", ng-disabled="creation").btn.btn-primary Vote !
             .tab-pane#votes(ng-show="afficheVote()", ng-controller="VotesSondageControleur")
                 span(ng-show="votes.length == 0") No vote yet
                 table.table(ng-show="votes.length > 0")
@@ -86,3 +90,5 @@ block js
              js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=569658266439600";
              fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
+
+    script(type="text/javascript",  src="http://static.bufferapp.com/js/button.js")
