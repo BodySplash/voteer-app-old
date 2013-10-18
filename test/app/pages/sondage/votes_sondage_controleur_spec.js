@@ -20,20 +20,32 @@ describe("Votes sondage controleur", function () {
 
     describe("Étantd donné que le sondage est public", function () {
 
+        var nombreVotes = 0;
+
         beforeEach(function () {
             var desVotes = ['test'];
-            votes.query.andReturn(desVotes);
+            votes.query.andCallFake(function(options, callback) {
+                callback(desVotes);
+                return desVotes;
+            });
             scope.sondage = { visibility: 'Public', id: 'un id'};
+            scope.$on("VotesChargés", function(event, nombre) {
+                nombreVotes = nombre;
+            })
             scope.$emit("SondageChargé");
         });
 
         it("doit charger les votes", function() {
-           expect(votes.query).toHaveBeenCalledWith({id : 'un id'});
+           expect(votes.query).toHaveBeenCalledWith({id : 'un id'}, jasmine.any(Function));
         });
 
         it("doit passer les votes au scope", function() {
             expect(scope.votes).not.toBeUndefined();
             expect(scope.votes[0]).toBe('test');
+        });
+
+        it("doit remonter le nombre de votes chargés", function() {
+            expect(nombreVotes).toBe(1);
         });
     });
 

@@ -12,5 +12,9 @@
             $scope.afficheVote = function() {
                 return $scope.sondage.visibility == 'Public';
             }
+
+            $scope.$on("VotesChargés", function(event, nombre) {
+               $scope.nombreVotes = nombre;
+            });
         }]);
 })();

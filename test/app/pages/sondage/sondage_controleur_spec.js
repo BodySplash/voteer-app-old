@@ -43,4 +43,10 @@ describe("Sondage controleur", function () {
 
         expect(scope.afficheVote()).toBeTruthy();
     });
+
+    it("doit donner le nombre de votes", function() {
+        scope.$emit("VotesChargés", 3);
+
+        expect(scope.nombreVotes).toBe(3);
+    })
 });

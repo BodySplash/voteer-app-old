@@ -8,7 +8,9 @@ block content
             li.active
                 a(href="#participate", data-toggle="tab") Participate
             li(ng-show="afficheVote()")
-                a(href="#votes", data-toggle="tab") Existing votes
+                a(href="#votes", data-toggle="tab")
+                    | Existing votes &nbsp;
+                    span.badge.badge-info(ng-bind="nombreVotes")
             li(ng-show="sondage.withComments")
                 a(href="#disqus_thread", data-disqus-identifier="{{disqus_identifier}}", data-toggle="tab") Comments
         .tab-content
