@@ -3,7 +3,8 @@
 describe("Private Admin controleur", function () {
 
     var controleur, scope,
-        PrivateSondages = jasmine.createSpyObj("PrivateSondages", ['query']);;
+        PrivateSondages = jasmine.createSpyObj("PrivateSondages", ['query']),
+        SondageRessource = jasmine.createSpyObj("SondageRessource", ['delete']);
 
     beforeEach(function () {
         angular.mock.module("sondage.ressource");
@@ -15,7 +16,8 @@ describe("Private Admin controleur", function () {
         scope = $rootScope.$new();
         controleur = $controller("PrivateAdminControleur", {
             $scope: scope,
-            PrivateSondagesRessource: PrivateSondages
+            PrivateSondagesRessource: PrivateSondages,
+            SondageRessource : SondageRessource
         });
     }));
 
@@ -38,5 +40,32 @@ describe("Private Admin controleur", function () {
         scope.valideToken();
 
         expect(scope.sondages).toBe(sondages);
+    });
+
+    describe("étant donné une liste de sondages", function() {
+
+        var sondages;
+
+        beforeEach(function() {
+            sondages = [{id:"1", adminKey:"2"}, {id:"3", adminKey:"4"}];
+            PrivateSondages.query.andReturn(sondages);
+            scope.valideToken();
+        });
+
+        it("doit être possible de supprimer un sondage", function() {
+           scope.supprime(sondages[0]);
+
+           expect(SondageRessource.delete).toHaveBeenCalledWith({id:"1", key : "2"}, jasmine.any(Function))
+        });
+
+        it("doit enleter le sondage de la liste", function() {
+           SondageRessource.delete.andCallFake(function(options, callback)  {
+              callback();
+           });
+
+            scope.supprime(sondages[0]);
+
+            expect(scope.sondages).not.toContain(sondages[0]);
+        });
     });
 });

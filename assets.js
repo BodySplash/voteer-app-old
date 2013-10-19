@@ -61,6 +61,7 @@ module.exports = function (app) {
                 privateadmin: [
                     '/public/app/sondage/_module.js',
                     '/public/app/sondage/private_sondages_ressource.js',
+                    '/public/app/sondage/sondage_ressource.js',
                     '/public/app/pages/private_admin/_module.js',
                     '/public/app/pages/private_admin/private_admin_controleur.js'
                 ]

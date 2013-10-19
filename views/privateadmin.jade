@@ -8,14 +8,16 @@ block content
                     input.form-control(type="text", placeholder="Token please !", ng-model="adminToken")
                     span.input-group-btn
                         button(type="submit").btn.btn-primary Go !
-            | Sondages
-            table.table
-                tr(ng-repeat="sondage in sondages")
-                    td
-                        a(href="/polls/{{sondage.id}}") {{sondage.name}}
-                    td
-                        | {{sondage.creationDate | date}}
-                    td
-                        a(href="/polls/{{sondage.id}}/admin?key={{sondage.adminKey}}") Admin
+        | Sondages
+        table.table
+            tr(ng-repeat="sondage in sondages")
+                td
+                    a(href="/polls/{{sondage.id}}") {{sondage.name}}
+                td
+                    | {{sondage.creationDate | date}}
+                td
+                    a(href="/polls/{{sondage.id}}/admin?key={{sondage.adminKey}}") Admin
+                td
+                    button.btn.btn-danger(ng-click="supprime(sondage)") Supprimer
 block js
     != nap.js("privateadmin")
