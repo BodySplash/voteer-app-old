@@ -2,22 +2,26 @@ extends include/layout
 block content
     h1 Private Admin
     div(ng-app='pages.private.admin', ng-controller="PrivateAdminControleur")
-        form(ng-submit="valideToken()", ng-hide="sondages")
+        form(ng-submit="valideToken()", ng-hide="sondagesLoaded")
             .row.col-md-offset-4
                 .input-group.col-md-6
                     input.form-control(type="text", placeholder="Token please !", ng-model="adminToken")
                     span.input-group-btn
                         button(type="submit").btn.btn-primary Go !
-        | Sondages
-        table.table
-            tr(ng-repeat="sondage in sondages")
-                td
-                    a(href="/polls/{{sondage.id}}") {{sondage.name}}
-                td
-                    | {{sondage.creationDate | date}}
-                td
-                    a(href="/polls/{{sondage.id}}/admin?key={{sondage.adminKey}}") Admin
-                td
-                    button.btn.btn-danger(ng-click="supprime(sondage)") Supprimer
+        div(ng-show="sondagesLoaded")
+            h2 {{sondages.length}} sondages
+            table.table
+                tbody
+                    tr(ng-repeat="sondage in sondages")
+                        td
+                            a(href="/polls/{{sondage.id}}") {{sondage.name}}
+                        td
+                            | {{sondage.creationDate | date}}
+                        td
+                            a(href="/polls/{{sondage.id}}/admin?key={{sondage.adminKey}}") Admin
+                        td
+                            button.btn.btn-danger(ng-click="supprime(sondage)")
+                                span.glyphicon.glyphicon-trash
+                                | &nbsp;Delete
 block js
     != nap.js("privateadmin")

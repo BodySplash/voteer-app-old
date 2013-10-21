@@ -30,7 +30,7 @@ describe("Private Admin controleur", function () {
 
         scope.valideToken();
 
-        expect(PrivateSondages.query).toHaveBeenCalledWith({adminToken: "aa"});
+        expect(PrivateSondages.query).toHaveBeenCalledWith({adminToken: "aa"}, jasmine.any(Function));
     });
 
     it("doit passer les sondages au scope à la validation du token", function () {
@@ -40,6 +40,14 @@ describe("Private Admin controleur", function () {
         scope.valideToken();
 
         expect(scope.sondages).toBe(sondages);
+    });
+
+    it("doit indiquer ques les sondages ont été chargées", function () {
+        PrivateSondages.query.andCallFake(function(options, callback) { callback();});
+
+        scope.valideToken();
+
+        expect(scope.sondagesLoaded).toBeTruthy();
     });
 
     describe("étant donné une liste de sondages", function() {
@@ -58,7 +66,7 @@ describe("Private Admin controleur", function () {
            expect(SondageRessource.delete).toHaveBeenCalledWith({id:"1", key : "2"}, jasmine.any(Function))
         });
 
-        it("doit enleter le sondage de la liste", function() {
+        it("doit enlever le sondage de la liste", function() {
            SondageRessource.delete.andCallFake(function(options, callback)  {
               callback();
            });

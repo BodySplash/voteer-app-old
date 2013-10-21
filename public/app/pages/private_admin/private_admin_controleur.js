@@ -3,8 +3,12 @@
 
     angular.module("pages.private.admin")
         .controller("PrivateAdminControleur", ["$scope", "PrivateSondagesRessource", "SondageRessource", function($scope, PrivateSondages, Sondage) {
+            $scope.sondagesLoaded = false;
+
             $scope.valideToken = function() {
-                $scope.sondages = PrivateSondages.query({adminToken: $scope.adminToken});
+                $scope.sondages = PrivateSondages.query({adminToken: $scope.adminToken}, function() {
+                   $scope.sondagesLoaded = true;
+                });
             };
 
             $scope.supprime = function(sondage) {
