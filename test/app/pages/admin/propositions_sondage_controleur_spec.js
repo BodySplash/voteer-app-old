@@ -27,7 +27,10 @@ describe("Propositions sondage controleur", function () {
 
     describe("Étant donné que le sondage est chargé", function () {
 
+        var appelSucces;
+
         beforeEach(function () {
+            appelSucces = true;
             scope.sondage = {
                 id: "id",
                 adminKey: "key"
@@ -39,6 +42,13 @@ describe("Propositions sondage controleur", function () {
                     {label: "deux"}
                 ];
             })
+            Propositions.save.andCallFake(function(params, options, succes, erreur) {
+                if(appelSucces) {
+                    succes();
+                    return;
+                }
+                erreur();
+            });
             scope.$broadcast("SondageChargé");
         });
 
@@ -57,19 +67,34 @@ describe("Propositions sondage controleur", function () {
 
             scope.ajouteProposition();
 
-            expect(Propositions.save).toHaveBeenCalledWith({key: "key", id: "id"}, { label: "test"}, jasmine.any(Function));
+            expect(Propositions.save).toHaveBeenCalledWith({key: "key", id: "id"}, { label: "test"}, jasmine.any(Function), jasmine.any(Function));
+            expect(scope.ajoutValide).toBeTruthy();
         });
 
         it("doit ajouter la nouvelle proposition à liste et remetter à zéro la valeur sur succes", function () {
-            Propositions.save.andCallFake(function (param, value, callback) {
-                callback();
-            })
             scope.nouvelleProposition = "test";
 
             scope.ajouteProposition();
 
             expect(scope.propositions).toContain({label : 'test'});
             expect(scope.nouvelleProposition).toBe("");
+        });
+
+        it("doit prévenir sur erreur ajout", function () {
+            scope.nouvelleProposition = "test";
+            appelSucces = false;
+
+            scope.ajouteProposition();
+
+            expect(scope.ajoutValide).toBeFalsy();
+        });
+
+        it("n'ajoute pas de proposition vide", function () {
+            scope.nouvelleProposition = '';
+
+            scope.ajouteProposition();
+
+            expect(scope.ajoutValide).toBeFalsy();
         });
 
         it("doit pouvoir supprimer une proposition", function () {

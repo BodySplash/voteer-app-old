@@ -13,10 +13,22 @@
             });
 
             $scope.ajouteProposition = function () {
-                Propositions.save({key: $scope.sondage.adminKey, id : $scope.sondage.id}, { label: $scope.nouvelleProposition}, function () {
-                    $scope.propositions.push({label : $scope.nouvelleProposition});
+                if($scope.nouvelleProposition){
+                    Propositions.save({key: $scope.sondage.adminKey, id : $scope.sondage.id}, { label: $scope.nouvelleProposition}, ajoutRéussi, ajoutRaté);
+                } else {
+                    $scope.ajoutValide = false;
+                }
+
+
+                function ajoutRéussi () {
+                    $scope.propositions.push({label: $scope.nouvelleProposition});
                     $scope.nouvelleProposition = '';
-                });
+                    $scope.ajoutValide = true;
+                }
+
+                function ajoutRaté() {
+                    $scope.ajoutValide = false;
+                }
             };
 
             $scope.supprimeProposition = function(proposition) {

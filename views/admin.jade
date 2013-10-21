@@ -54,8 +54,8 @@ block content
                                         | &nbsp;Delete
                             tfoot
                                 tr(ng-show="ajoutPropositionPossible")
-                                    td(colspan=2)
-                                        input.form-control(type="text", placeholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
+                                    td(colspan=2, ng-class="{'has-error' : ajoutValide == false}")
+                                        input.form-control(type="text", required=true, replaceholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
                                 tr(ng-show="!ajoutPropositionPossible")
                                     td(colspan=2)
                                         .alert.alert-warning
