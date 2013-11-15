@@ -4,7 +4,7 @@
     angular.module("pages.admin")
         .controller("VotesSondageControleur", ['$scope', 'VotesSondageRessource', 'VoteSondageRessource', function($scope, Votes, Vote) {
             $scope.$on("SondageChargé", function() {
-                $scope.votes = Votes.query({id : $scope.sondage.id, key : $scope.sondage.key}, function(data) {
+                $scope.votes = Votes.query({id : $scope.sondage.id, key : $scope.sondage.adminKey}, function(data) {
                     $scope.votesCharges = true;
                     if(data.length > 0) {
                         $scope.$emit("VotesExistent");
