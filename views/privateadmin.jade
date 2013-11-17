@@ -5,18 +5,37 @@ block content
         form(ng-submit="valideToken()", ng-hide="sondagesLoaded")
             .row.col-md-offset-4
                 .input-group.col-md-6
-                    input.form-control(type="text", placeholder="Token please !", ng-model="adminToken")
+                    input.form-control(type="password", placeholder="Token please !", ng-model="adminToken")
                     span.input-group-btn
                         button(type="submit").btn.btn-primary Go !
         div(ng-show="sondagesLoaded")
-            h2 {{sondages.length}} sondages
+            h2 {{sondages.length}} polls
             table.table
+                thead
+                    tr
+                        th
+                            a(href="",ng-click="predicate = 'creationDate'; reverse=!reverse")
+                                | Date&nbsp;
+                                span.glyphicon.glyphicon-chevron-down(ng-show="predicate == 'creationDate' && reverse")
+                                span.glyphicon.glyphicon-chevron-up(ng-show="predicate == 'creationDate' && !reverse")
+                        th
+                            a(href="",ng-click="predicate = 'name'; reverse=!reverse")
+                                | Name&nbsp;
+                                span.glyphicon.glyphicon-chevron-down(ng-show="predicate == 'name' && reverse")
+                                span.glyphicon.glyphicon-chevron-up(ng-show="predicate == 'name' && !reverse")
+                        th
+                            a(href="",ng-click="predicate = 'votesCount'; reverse=!reverse")
+                                | Votes&nbsp;
+                                span.glyphicon.glyphicon-chevron-down(ng-show="predicate == 'votesCount' && reverse")
+                                span.glyphicon.glyphicon-chevron-up(ng-show="predicate == 'votesCount' && !reverse")
+                        th Admin
+                        th Actions
                 tbody
-                    tr(ng-repeat="sondage in sondages")
+                    tr(ng-repeat="sondage in sondages | orderBy:predicate:reverse")
+                        td {{sondage.creationDate | date}}
                         td
                             a(href="/polls/{{sondage.id}}") {{sondage.name}}
-                        td
-                            | {{sondage.creationDate | date}}
+                        td {{sondage.votesCount}}
                         td
                             a(href="/polls/{{sondage.id}}/admin?key={{sondage.adminKey}}") Admin
                         td
