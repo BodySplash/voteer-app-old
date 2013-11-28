@@ -69,8 +69,8 @@ module.exports = function (app) {
             },
             css: {
                 all: [
-                    '/public/css/style.styl',
-                    '/public/bootstrap/css/bootstrap_embed.css'
+                    '/public/bootstrap/css/bootstrap_embed.css',
+                    '/public/css/style.styl'
                 ]
             }
 
