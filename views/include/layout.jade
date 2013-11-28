@@ -28,26 +28,35 @@ html
             .navbar-header
                 a.navbar-brand(href="/")
                     img(src="/img/icon.png", alt="Voteer")
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
 
-            .collapse.navbar-collapse
+            .collapse.navbar-collapse#navbar-main
                 ul.nav.navbar-nav
 
                     li(class=classe==='accueil'?'active':'')
                         a(href="/") Home
+                    li
+                        a(href="/#create") New poll
                     li(class=classe==='aide'?'active':'')
                         a(href="/help") Help
         .container
             block content
             hr
             footer
-                a.learn-more(href="http://en.wikipedia.org/wiki/Condorcet_method", target="_blank")
+                a.pull-right(href="http://en.wikipedia.org/wiki/Condorcet_method", target="_blank")
                     span.glyphicon.glyphicon-info-sign
                     |&nbsp;Learn More
                 | #{version_courante}
-                a(href="http://www.arpinum.fr")
+                a(href="http://www.arpinum.fr", target="_blank")
                     span.glyphicon.glyphicon-copyright-mark
                     |&nbsp;Arpinum
                 |  2012-2013
+                | -
+                | Kuddos for the logo to
+                a(href="http://dribbble.com/fjeannet", target="_blank") &nbsp;Fabrice Jeannet
 
 
 
