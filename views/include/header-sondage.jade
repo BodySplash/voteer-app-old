@@ -8,6 +8,8 @@ mixin headerSondage(avecReseauxSociaux)
             | &nbsp;{{sondage.creationDate|date:'medium'}}
         p
             a(href="/polls/{{sondage.id}}/result") See poll result
+        p
+            a(href="", data-toggle="modal", data-target="#qrModal") Display QR code
         if avecReseauxSociaux
             .reseaux-sociaux
                 span.st_googleplus(displayText='Google +')
@@ -18,3 +20,14 @@ mixin headerSondage(avecReseauxSociaux)
                 span.st_pinterest(displayText='Pinterest')
                 span.st_yammer(displayText='Yammer')
                 span.st_email(displayText='Email')
+        #qrModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='QR Code', aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                        h4#myModalLabel.modal-title QR Code
+                    .modal-body
+                        img(ng-src="http://api.qrserver.com/v1/create-qr-code/?data=http://voteer.com/polls/{{sondage.id}}?size=250x250")
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+
