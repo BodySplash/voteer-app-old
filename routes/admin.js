@@ -1,7 +1,9 @@
+var i18n = require('i18next');
+
 exports.index = function (req, res) {
 
     res.render('admin', {
         classe : 'admin',
-        titre : 'Poll administration - Voteer, group compromise made easy'});
+        titre : i18n.t("app.title.admin") + ' - ' + i18n.t("app.title.global")});
 
 };

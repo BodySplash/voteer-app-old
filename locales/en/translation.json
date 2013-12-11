@@ -6,6 +6,13 @@
             "newPoll": "New poll",
             "help": "Help"
         },
+        "title": {
+            "global": "Voteer, group compromise made easy",
+            "pollResult": "Poll result",
+            "admin": "Poll administration",
+            "help": "Help",
+            "thankYou": "Thank you for your vote"
+        },
         "footer": {
             "learnMore": "Learn More",
             "followUsOnTwitter": "Follow us on Twitter",
