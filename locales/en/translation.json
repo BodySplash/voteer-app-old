@@ -49,6 +49,12 @@
             "itsATie": "It's a tie !",
             "ranking": "Ranking",
             "returnToThePoll": "Return to the poll"
+        },
+        "thankyou": {
+            "thankYouForYourVote": "Thank you for your vote !",
+            "nowYouCanEither": "Now you can either :",
+            "returnToThePoll": "Return to the poll",
+            "seeVoteResult": "See vote result"
         }
     }
 }

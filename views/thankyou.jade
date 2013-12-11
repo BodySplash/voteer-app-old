@@ -1,12 +1,12 @@
 extends include/layout
 block content
     .page-header
-        h1 Thank you for your vote !
+        h1= t("app.thankyou.thankYouForYourVote")
 
     .well
-        p Now you can either :
+        p= t("app.thankyou.nowYouCanEither")
         ul
             li
-                a(href="/polls/#{pollId}") Return to the poll
+                a(href="/polls/#{pollId}")= t("app.thankyou.returnToThePoll")
             li
-                a(href="/polls/#{pollId}/result") See vote result
+                a(href="/polls/#{pollId}/result")= t("app.thankyou.seeVoteResult")
