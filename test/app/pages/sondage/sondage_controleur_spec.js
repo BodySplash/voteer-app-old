@@ -48,5 +48,11 @@ describe("Sondage controleur", function () {
         scope.$emit("VotesChargés", 3);
 
         expect(scope.nombreVotes).toBe(3);
-    })
+    });
+
+    it("Doit dire si le sondage est fermé", function() {
+        scope.sondage = { status: 'Ferme'};
+
+        expect(scope.sondageFerme()).toBeTruthy();
+    });
 });

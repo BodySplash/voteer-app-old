@@ -13,6 +13,10 @@
                 return $scope.sondage.visibility == 'Public';
             }
 
+            $scope.sondageFerme = function () {
+                return $scope.sondage.status == "Ferme";
+            }
+
             $scope.$on("VotesChargés", function(event, nombre) {
                $scope.nombreVotes = nombre;
             });

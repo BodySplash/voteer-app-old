@@ -18,8 +18,8 @@ block content
                 div(loader="propositionsChargees")
                 .alert.alert-warning(ng-show="!votePossible()", ng-cloak)
                     | No proposals for this poll yet
-                form(ng-submit="valideVote()", ng-show="votePossible()")
-                    h3.text-center Proceed with your vote !
+                form(ng-submit="valideVote()", ng-show="votePossible()", ng-if="!sondageFerme()", ng-cloak)
+                    h3.text-center Proceed with your vote!
                     .row(ng-cloak)
                         .row.participation.col-md-8.col-md-offset-2
                             .col-md-6
@@ -57,11 +57,14 @@ block content
                         .col-md-6.action
                             label
                                 span.label.label-primary 3
-                                | &nbsp; Enter your name and vote !
+                                | &nbsp; Enter your name and vote!
                             .input-group
                                 input.form-control(type="text", placeholder="Enter name or nickname", ng-model="vote.name")
                                 span.input-group-btn
                                     button(type="submit", loading="Vote...", ng-disabled="creation").btn.btn-primary Vote !
+                div.text-center(ng-if="sondageFerme()", ng-cloak)
+                    h3 The poll is closed!
+                    a.btn.btn-default(href="/polls/{{sondage.id}}/result") See poll result
             .tab-pane#votes(ng-show="afficheVote()", ng-controller="VotesSondageControleur")
                 span(ng-show="votes.length == 0") No vote yet
                 table.table(ng-show="votes.length > 0")
