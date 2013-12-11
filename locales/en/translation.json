@@ -57,7 +57,24 @@
             "seeVoteResult": "See vote result"
         },
         "sondage": {
-
+            "participate": "Participate",
+            "existingVotes": "Existing votes",
+            "comments": "Comments",
+            "noProposal": "No proposal for this poll yet",
+            "proceed": "Proceed with your vote!",
+            "pick": "Pick proposals",
+            "select": "Select",
+            "orderThem": "Order them",
+            "unselect": "Unselect",
+            "enterYourNameAndVote": "Enter your name and vote!",
+            "enterNameOrNickname": "Enter name or nickname",
+            "voteAction": "Vote!",
+            "voteInProgress": "Vote...",
+            "pollIsClosed": "The poll is closed!",
+            "seePollResult": "See poll result",
+            "noVoteYet": "No vote yet",
+            "participant": "Participant",
+            "vote": "Vote"
         },
         "help": {
 

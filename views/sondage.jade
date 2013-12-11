@@ -6,40 +6,43 @@ block content
 
         ul.nav.nav-tabs
             li.active
-                a(href="#participate", data-toggle="tab") Participate
+                a(href="#participate", data-toggle="tab")= t("app.sondage.participate")
             li(ng-show="afficheVote()")
                 a(href="#votes", data-toggle="tab")
-                    | Existing votes &nbsp;
+                    = t("app.sondage.existingVotes")
+                    | &nbsp;
                     span.badge.badge-info(ng-bind="nombreVotes")
             li(ng-show="sondage.withComments")
-                a(href="#disqus_thread", data-disqus-identifier="{{disqus_identifier}}", data-toggle="tab") Comments
+                a(href="#disqus_thread", data-disqus-identifier="{{disqus_identifier}}", data-toggle="tab")= t("app.sondage.comments")
         .tab-content
             .tab-pane.active#participate(ng-controller="VoteControleur")
                 div(loader="propositionsChargees")
                 .alert.alert-warning(ng-show="!votePossible()", ng-cloak)
-                    | No proposals for this poll yet
+                    = t("app.sondage.noProposal")
                 form(ng-submit="valideVote()", ng-show="votePossible()", ng-if="!sondageFerme()", ng-cloak)
-                    h3.text-center Proceed with your vote!
+                    h3.text-center= t("app.sondage.proceed")
                     .row(ng-cloak)
                         .row.participation.col-md-8.col-md-offset-2
                             .col-md-6
                                 label
                                     span.label.label-primary 1
-                                    | &nbsp;Pick proposals
+                                    | &nbsp;
+                                    = t("app.sondage.pick")
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in propositions")
                                         h5.list-group-item-heading.text-info
                                             strong {{proposition.label}}
                                         p.list-group-item-text
                                             button.btn.btn-info(ng-click="votePour(proposition)", type="button")
-                                                | Select
+                                                = t("app.sondage.select")
                                                 span.glyphicon.glyphicon-chevron-right
 
 
                             .col-md-6
                                 label
                                     span.label.label-primary 2
-                                    | &nbsp;Order them
+                                    | &nbsp;
+                                    = t("app.sondage.orderThem")
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in vote.proposals")
                                         h5.list-group-item-heading.text-success
@@ -48,7 +51,7 @@ block content
                                             .btn-group
                                                 button.btn.btn-info(type="button", ng-click="annuleVotePour(proposition)")
                                                     span.glyphicon.glyphicon-chevron-left
-                                                    | Unselect
+                                                    = t("app.sondage.unselect")
                                                 button.btn.btn-default(type="button", ng-if="!$first", ng-click="monte(proposition)")
                                                     span.glyphicon.glyphicon-chevron-up
                                                 button.btn.btn-default(type="button", ng-if="!$last", ng-click="descend(proposition)")
@@ -57,21 +60,22 @@ block content
                         .col-md-6.action
                             label
                                 span.label.label-primary 3
-                                | &nbsp; Enter your name and vote!
+                                | &nbsp;
+                                = t("app.sondage.enterYourNameAndVote")
                             .input-group
-                                input.form-control(type="text", placeholder="Enter name or nickname", ng-model="vote.name")
+                                input.form-control(type="text", placeholder=t("app.sondage.enterNameOrNickname"), ng-model="vote.name")
                                 span.input-group-btn
-                                    button(type="submit", loading="Vote...", ng-disabled="creation").btn.btn-primary Vote !
+                                    button(type="submit", loading=t("app.sondage.voteInProgress"), ng-disabled="creation").btn.btn-primary= t("app.sondage.voteAction")
                 div.text-center(ng-if="sondageFerme()", ng-cloak)
-                    h3 The poll is closed!
-                    a.btn.btn-default(href="/polls/{{sondage.id}}/result") See poll result
+                    h3= t("app.sondage.pollIsClosed")
+                    a.btn.btn-default(href="/polls/{{sondage.id}}/result")= t("app.sondage.seePollResult")
             .tab-pane#votes(ng-show="afficheVote()", ng-controller="VotesSondageControleur")
-                span(ng-show="votes.length == 0") No vote yet
+                span(ng-show="votes.length == 0")= t("app.sondage.noVoteYet")
                 table.table(ng-show="votes.length > 0")
                     thead
                         tr
-                            th Participant
-                            th Vote
+                            th= t("app.sondage.participant")
+                            th= t("app.sondage.vote")
                     tbody
                         tr(ng-repeat="vote in votes")
                             td(ng-bind="vote.participant || 'Anonymous'")
