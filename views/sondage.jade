@@ -19,7 +19,7 @@ block content
                 .alert.alert-warning(ng-show="!votePossible()", ng-cloak)
                     | No proposals for this poll yet
                 form(ng-submit="valideVote()", ng-show="votePossible()")
-                    label Proceed with your vote !
+                    h3.text-center Proceed with your vote !
                     .row(ng-cloak)
                         .row.participation.col-md-8.col-md-offset-2
                             .col-md-6
