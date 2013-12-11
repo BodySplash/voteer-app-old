@@ -55,6 +55,12 @@
             "nowYouCanEither": "Now you can either :",
             "returnToThePoll": "Return to the poll",
             "seeVoteResult": "See vote result"
+        },
+        "sondage": {
+
+        },
+        "help": {
+
         }
     }
 }
