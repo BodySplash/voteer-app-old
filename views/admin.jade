@@ -6,52 +6,54 @@ block content
 
         .page-header
             h3#links
-                Vote link :&nbsp;
-                a(ng-href="/polls/{{sondage.id}}") <span ng-bind="'/polls/' + sondage.id">
+                span= t("app.admin.voteLink")
+                | &nbsp;
+                a(ng-href="/polls/{{sondage.id}}")
+                    span(ng-bind="'/polls/' + sondage.id")
 
         .div(ng-cloak="", ng-controller="ConfigurationSondageControleur")
             .panel.panel-default
                 .panel-heading
-                    h4 Configuration
+                    h4= t("app.admin.configuration")
                 .panel-body
                     div(loader="configurationChargee")
                     div
                         .col-lg-2
-                            label Votes are :
+                            label= t("app.admin.votesAre")
                         .col-lg-10
                             .btn-group(data-toggle="buttons")
                                 label.btn.btn-primary(ng-class="{Privee:'active'}[sondage.visibility]", ng-click="changeVisibilite('Privee')")
                                     input(type="radio", name="visibility", value="Privee")
-                                    | Private
+                                    span= t("app.admin.private")
                                 label.btn.btn-primary(ng-class="{Public:'active'}[sondage.visibility]", ng-click="changeVisibilite('Public')")
                                     input(type="radio", name="visibility", value="Public")
-                                    | Public
+                                    span= t("app.admin.public")
                     div
                         .col-lg-2
-                            label Comments are :
+                            label= t("app.admin.commentsAre")
                         .col-lg-10
                             .btn-group(data-toggle="buttons")
                                 label.btn.btn-primary(ng-class="{active : !sondage.withComments}", ng-click="changeCommentaires(false)")
                                     input(type="radio", name="withComments", value="false")
-                                    | Disabled
+                                    span= t("app.admin.disabled")
                                 label.btn.btn-primary(ng-class="{active : sondage.withComments}", ng-click="changeCommentaires(true)")
                                     input(type="radio", name="withComments", value="true")
-                                    | Enabled
+                                    span= t("app.admin.enabled")
                     div
                         .col-lg-2
-                            label Poll is :
+                            label= t("app.admin.pollIs")
                         .col-lg-10
                             .btn-group(data-toggle="buttons")
                                 label.btn.btn-primary(ng-class="{active : sondage.status == 'Ouvert'}", ng-click="changeStatus('Ouvert')")
                                     input(type="radio", name="status", value="Opened")
-                                    | Opened
+                                    span= t("app.admin.opened")
                                 label.btn.btn-primary(ng-class="{active : sondage.status == 'Ferme'}", ng-click="changeStatus('Ferme')")
                                     input(type="radio", name="status", value="Closed")
-                                    | Closed
+                                    span= t("app.admin.closed")
 
             .panel.panel-default
                 .panel-heading
-                    h4 Proposals
+                    h4= t("app.admin.proposals")
                 .panel-body(ng-controller="PropositionsSondageControleur")
                     div(loader="propositionsChargees")
 
@@ -62,29 +64,30 @@ block content
                                 td
                                     button.btn.btn-danger(ng-click="supprimeProposition(proposition)", ng-disabled="!ajoutPropositionPossible")
                                         span.glyphicon.glyphicon-trash
-                                        | &nbsp;Delete
+                                        | &nbsp;
+                                        span= t("app.admin.delete")
                             tfoot
                                 tr(ng-show="ajoutPropositionPossible()")
                                     td(colspan=2, ng-class="{'has-error' : ajoutValide == false}")
-                                        input.form-control(type="text", required=true, replaceholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
+                                        input.form-control(type="text", required=true, placeholder=t("app.admin.enterProposalPlaceHolder"), ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
                                 tr(ng-show="!ajoutPropositionPossible()")
                                     td(colspan=2)
-                                        .alert.alert-warning
-                                            | Votes exist on this poll or poll is closed
+                                        .alert.alert-warning= t("app.admin.votesExistOrPollIsClosed")
 
 
             .panel.panel-default(ng-controller="VotesSondageControleur")
                 .panel-heading
-                    h4 Votes&nbsp;
+                    h4= t("app.admin.votes")
+                        | &nbsp;
                         span.badge.badge-default {{votes.length}}
                 .panel-body
                     div(loader="votesCharges")
-                    span(ng-show="votes.length == 0") No vote yet
+                    span(ng-show="votes.length == 0")= t("app.admin.noVoteYet")
                     table.table(ng-show="votes.length > 0")
                         thead
                             tr
-                                th Participant
-                                th Vote
+                                th= t("app.admin.participant")
+                                th= t("app.admin.vote")
                                 th
                         tbody
                             tr(ng-repeat="vote in votes")
@@ -96,7 +99,8 @@ block content
                                 td
                                     button.btn.btn-danger(ng-click="supprimeVote(vote)")
                                         span.glyphicon.glyphicon-trash
-                                        | &nbsp;Delete
+                                        | &nbsp;
+                                        span= t("app.admin.delete")
 
 block js
     != nap.js("admin")

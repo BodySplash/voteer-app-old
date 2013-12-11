@@ -8,7 +8,7 @@ var app = express();
 console.log("Configuring app for " + app.get('env') + " environment");
 
 i18n.init({
-    saveMissing: true,
+    debug: true,
     ignoreRoutes: ['img/','assets/', 'font/'],
     fallbackLng : 'en'
 });

@@ -16,6 +16,33 @@
             "create": "Create",
             "creationInProgress": "Create...",
             "pollName": "Poll name"
+        },
+        "pollHeader": {
+            "seePollResult": "See poll result",
+            "displayQRCode": "Display QR code",
+            "QRCode": "QR Code",
+            "close": "Close"
+        },
+        "admin": {
+            "voteLink": "Vote link :",
+            "configuration": "Configuration",
+            "votesAre": "Votes are :",
+            "private": "Private",
+            "public": "Public",
+            "commentsAre": "Comments are :",
+            "disabled": "Disabled",
+            "enabled": "Enabled",
+            "pollIs": "Poll is :",
+            "opened": "Opened",
+            "closed": "Closed",
+            "proposals": "Proposals",
+            "delete": "Delete",
+            "enterProposalPlaceHolder": "Enter proposal description and press enter",
+            "votesExistOrPollIsClosed": "Votes exist on this poll or poll is closed",
+            "votes" : "Votes",
+            "noVoteYet": "No vote yet",
+            "participant": "Participant",
+            "vote": "Vote"
         }
     }
 }

@@ -8,9 +8,9 @@ mixin headerSondage(avecReseauxSociaux, avecLiens)
             | &nbsp;{{sondage.creationDate|date:'longDate'}}
         if avecLiens
             p
-                a(href="/polls/{{sondage.id}}/result") See poll result
+                a(href="/polls/{{sondage.id}}/result")= t("app.pollHeader.seePollResult")
             p
-                a(href="", data-toggle="modal", data-target="#qrModal") Display QR code
+                a(href="", data-toggle="modal", data-target="#qrModal")= t("app.pollHeader.displayQRCode")
         if avecReseauxSociaux
             .reseaux-sociaux
                 span.st_googleplus(displayText='Google +')
@@ -24,9 +24,9 @@ mixin headerSondage(avecReseauxSociaux, avecLiens)
                 .modal-content
                     .modal-header
                         button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                        h4#myModalLabel.modal-title QR Code
+                        h4#myModalLabel.modal-title= t("app.pollHeader.QRCode")
                     .modal-body
                         img(ng-src="http://api.qrserver.com/v1/create-qr-code/?data=http://voteer.com/polls/{{sondage.id}}?size=250x250")
                     .modal-footer
-                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+                        button.btn.btn-default(type='button', data-dismiss='modal')= t("app.pollHeader.close")
 
