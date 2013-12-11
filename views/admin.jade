@@ -64,13 +64,13 @@ block content
                                         span.glyphicon.glyphicon-trash
                                         | &nbsp;Delete
                             tfoot
-                                tr(ng-show="ajoutPropositionPossible")
+                                tr(ng-show="ajoutPropositionPossible()")
                                     td(colspan=2, ng-class="{'has-error' : ajoutValide == false}")
                                         input.form-control(type="text", required=true, replaceholder="Enter proposal description and press enter",ng-model="nouvelleProposition", ui-keypress="{13 : 'ajouteProposition($event)'}")
-                                tr(ng-show="!ajoutPropositionPossible")
+                                tr(ng-show="!ajoutPropositionPossible()")
                                     td(colspan=2)
                                         .alert.alert-warning
-                                            | Votes exist on this poll
+                                            | Votes exist on this poll or poll is closed
 
 
             .panel.panel-default(ng-controller="VotesSondageControleur")

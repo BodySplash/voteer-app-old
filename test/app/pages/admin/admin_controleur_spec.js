@@ -28,25 +28,35 @@ describe("Admin controleur", function () {
        expect(scope.ajoutPropositionPossible).toBeTruthy();
     });
 
+    describe("Etant donné que le sondage est fermé", function() {
+        it("Doit demander de ne pas permettre d'ajouter ou supprimer des propositions", function() {
+            scope.sondage = {status: "Ferme"};
+
+            expect(scope.ajoutPropositionPossible()).toBeFalsy();
+        });
+    });
+
     describe("Etant donné que le controleur de vote signale des votes", function() {
 
         beforeEach(inject(function($rootScope) {
+           scope.sondage = {status: "Ouvert"};
            $rootScope.$broadcast("VotesExistent");
         }));
 
         it("Doit demander de ne pas permettre d'ajouter ou supprimer des propositions", function() {
-            expect(scope.ajoutPropositionPossible).toBeFalsy();
+            expect(scope.ajoutPropositionPossible()).toBeFalsy();
         });
     });
 
     describe("Etant donné que le controleur de vote signale qu'il n'y a plus de vote", function() {
 
         beforeEach(inject(function($rootScope) {
+            scope.sondage = {status: "Ouvert"};
             $rootScope.$broadcast("PlusDeVote");
         }));
 
         it("Doit demander de  permettre d'ajouter ou supprimer des propositions", function() {
-            expect(scope.ajoutPropositionPossible).toBeTruthy();
+            expect(scope.ajoutPropositionPossible()).toBeTruthy();
         });
     });
 
@@ -88,10 +98,4 @@ describe("Admin controleur", function () {
             expect(scope.$broadcast).toHaveBeenCalledWith("SondageChargé");
         });
     });
-
-
-
-
-
-
 });
