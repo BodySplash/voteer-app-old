@@ -48,12 +48,12 @@
         },
         "result": {
             "andTheWinnerIs": "And the winner is",
-            "itsATie": "It's a tie !",
+            "itsATie": "It's a tie!",
             "ranking": "Ranking",
             "returnToThePoll": "Return to the poll"
         },
         "thankyou": {
-            "thankYouForYourVote": "Thank you for your vote !",
+            "thankYouForYourVote": "Thank you for your vote!",
             "nowYouCanEither": "Now you can either :",
             "returnToThePoll": "Return to the poll",
             "seeVoteResult": "See vote result"
@@ -82,7 +82,7 @@
         "help": {
             "help": "Help",
             "participate": "I want to participate to a poll",
-            "ontovoting": "Just follow the link your friend gave you. Now, on to voting !",
+            "ontovoting": "Just follow the link your friend gave you. Now, on to voting!",
             "pick": "pick propositions",
             "clicking": "by clicking on it",
             "order": "order propositions",
@@ -94,7 +94,7 @@
             "votebutton": "the vote button",
             "comments": "if comments are enabled, you can share your point of view with other voters",
             "create": "I want to create a poll",
-            "creating": "Creating a poll is eaysy :",
+            "creating": "Creating a poll is easy :",
             "on": "on the",
             "front": "front page, ",
             "enter": "enter",

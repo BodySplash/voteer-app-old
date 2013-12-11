@@ -5,7 +5,7 @@
         .controller('SondageControleur', ['$scope', '$window', 'IdentiteSondage', 'SondageRessource', function($scope, $window, identiteSondage, Sondage) {
             $scope.sondage = Sondage.get({ id : identiteSondage.id}, function() {
                 $scope.sondageCharge = true;
-                $window.document.title = $scope.sondage.name;
+                $window.document.title = $scope.sondage.name + " - " + $window.document.title;
                 $scope.$broadcast('SondageChargé');
             });
 
