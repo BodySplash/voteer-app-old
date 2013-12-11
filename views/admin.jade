@@ -91,7 +91,9 @@ block content
                                 th
                         tbody
                             tr(ng-repeat="vote in votes")
-                                td(ng-bind="vote.participant || 'Anonymous'")
+				td
+				    span(ng-if="vote.participant") {{vote.participant}}
+				    span(ng-if="!vote.participant")= t('app.admin.anonymous')
                                 td
                                     span(ng-repeat="choix in vote.choices")
                                         | {{choix}}
