@@ -14,6 +14,11 @@
                 metAJourSondage();
             };
 
+            $scope.changeStatus = function(status) {
+                $scope.sondage.status = status;
+                metAJourSondage();
+            };
+
             $scope.$on("SondageChargé", function() {
                 $scope.configurationChargee = true;
             })

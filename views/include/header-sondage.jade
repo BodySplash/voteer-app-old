@@ -5,7 +5,7 @@ mixin headerSondage(avecReseauxSociaux)
         h1(ng-bind='sondage.name')
         p
             span.glyphicon.glyphicon-time
-            | &nbsp;{{sondage.creationDate|date:'medium'}}
+            | &nbsp;{{sondage.creationDate|date:'longDate'}}
         p
             a(href="/polls/{{sondage.id}}/result") See poll result
         p

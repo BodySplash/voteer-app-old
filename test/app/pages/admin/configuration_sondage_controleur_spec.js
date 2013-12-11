@@ -52,4 +52,16 @@ describe("Configuration sondage controleur", function() {
         expect(scope.sondage.withComments).toBeTruthy();
         expect(Sondage.update).toHaveBeenCalledWith({key : 'laKey'}, scope.sondage);
     });
+
+    it("peut changer le status", function() {
+        scope.sondage = {
+            status: 'Ouvert',
+            adminKey:'laKey'
+        };
+
+        scope.changeStatus('Ferme');
+
+        expect(scope.sondage.status).toBe("Ferme");
+        expect(Sondage.update).toHaveBeenCalledWith({key : 'laKey'}, scope.sondage);
+    });
 });

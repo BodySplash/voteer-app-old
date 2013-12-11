@@ -37,6 +37,17 @@ block content
                                 label.btn.btn-primary(ng-class="{active : sondage.withComments}", ng-click="changeCommentaires(true)")
                                     input(type="radio", name="withComments", value="true")
                                     | Enabled
+                    div
+                        .col-lg-2
+                            label Poll is :
+                        .col-lg-10
+                            .btn-group(data-toggle="buttons")
+                                label.btn.btn-primary(ng-class="{active : sondage.status == 'Ouvert'}", ng-click="changeStatus('Ouvert')")
+                                    input(type="radio", name="status", value="Opened")
+                                    | Opened
+                                label.btn.btn-primary(ng-class="{active : sondage.status == 'Ferme'}", ng-click="changeStatus('Ferme')")
+                                    input(type="radio", name="status", value="Closed")
+                                    | Closed
 
             .panel.panel-default
                 .panel-heading
