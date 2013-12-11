@@ -39,7 +39,7 @@
             "delete": "Delete",
             "enterProposalPlaceHolder": "Enter proposal description and press enter",
             "votesExistOrPollIsClosed": "Votes exist on this poll or poll is closed",
-            "votes" : "Votes",
+            "votes": "Votes",
             "noVoteYet": "No vote yet",
             "participant": "Participant",
             "vote": "Vote"
@@ -77,7 +77,33 @@
             "vote": "Vote"
         },
         "help": {
-
+            "help": "Help",
+            "participate": "I want to participate to a poll",
+            "ontovoting": "Just follow the link your friend gave you. Now, on to voting !",
+            "pick": "pick propositions",
+            "clicking": "by clicking on it",
+            "order": "order propositions",
+            "arrows": "by using arrow buttons",
+            "provide": "provide a",
+            "name": "name",
+            "wish": "if you wish",
+            "click": "click",
+            "votebutton": "the vote button",
+            "comments": "if comments are enabled, you can share your point of view with other voters",
+            "create": "I want to create a poll",
+            "creating": "Creating a poll is eaysy :",
+            "on": "on the",
+            "front": "front page, ",
+            "enter": "enter",
+            "pollname": "poll name",
+            "createbutton": "the create button",
+            "pollmaking": "you are now on the poll making page",
+            "configure": "configure your poll, with the numerous options provided",
+            "enter": "enter as many",
+            "propositions": "propositions",
+            "like": "as you like",
+            "share": "share",
+            "votelink": "the vote link with your friends or teammates using the social buttons"
         }
     }
 }

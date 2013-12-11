@@ -2,43 +2,62 @@ extends include/layout
 
 block content
     header.entete-sondage
-        h1 Help
+        h1= t("app.help.help")
     .row
         .col-md-6
-            h2 I want to participate to a poll
-            p Just follow the link your friend gave you. Now, on to voting !
+            h2= t("app.help.participate")
+            p= t("app.help.ontovoting")
             ul
                 li
-                    span.label.label-info pick propositions
-                    |  by clicking on it,
-                li
-                    span.label.label-info order propositions
-                    |  by using arrow buttons,
-                li
-                    | provide a&nbsp;
-                    span.label.label-info name
-                    |  if you wish,
-                li
-                    span.label.label-info click
-                    |  the vote button,
-                li if comments are enabled, you can share your point of view with other voters.
-        .col-md-6
-            h2 I want to create a poll
-            p Creating a poll is eaysy :
-            ul
-                li on the&nbsp;
-                    a(href="/") front page
-                    |, enter a&nbsp;
-                    span.label.label-info poll name
+                    span.label.label-info= t("app.help.pick")
+                    | &nbsp;
+                    = t("app.help.clicking")
                     |,
                 li
-                    span.label.label-info click
-                    |  the create button,
-                li you are now on the poll making page
-                li configure your poll, with the numerous options provided,
-                li enter as many&nbsp;
-                    span.label.label-info propositions
-                    |  as you like,
+                    span.label.label-info=t("app.help.order")
+                    | &nbsp;
+                    =t("app.help.arrows")
+                    |,
                 li
-                    span.label.label-info share
-                    |  the vote link with your friends or teammates using the social buttons.
+                    =t("app.help.provide")
+                    | &nbsp;
+                    span.label.label-info=t("app.help.name")
+                    | &nbsp;
+                    =t("app.help.wish")
+                    | ,
+                li
+                    span.label.label-info=t("app.help.click")
+                    | &nbsp;
+                    = t("app.help.votebutton")
+                    |,
+                li=t("app.help.comments")
+                    |.
+        .col-md-6
+            h2=t("app.help.create")
+            p=t("app.help.creating")
+            ul
+                li= t("app.help.on")
+                    |&nbsp;
+                    a(href="/")=t("app.help.front")
+                    =t("app.help.enter")
+                    | &nbsp;
+                    span.label.label-info=t("app.help.pollname")
+                    | ,
+                li
+                    span.label.label-info=t("app.help.click")
+                    | &nbsp;
+                    = t("app.help.createbutton")
+                    |,
+                li =t("app.help.pollmaking")
+                li= t("app.help.configure")
+                    |,
+                li=t("app.help.enter")
+                    |&nbsp;
+                    span.label.label-info=t("app.help.propositions")
+                    | &nbsp;
+                    =t("app.help.like")
+                    |,
+                li
+                    span.label.label-info=t("app.help.share")
+                    | &nbsp;
+                    =t("app.help.votelink")
