@@ -4,8 +4,8 @@ block content
     div(ng-app="pages.resultat", ng-controller="ResultatControleur")
         mixin headerSondage(true, false)
         .jumbotron
-            h1.text-center(ng-if="!egalite(premier)", ng-cloak) And the winner is
-            h1.text-center(ng-if="egalite(premier)", ng-cloak) It's a tie !
+            h1.text-center(ng-if="!egalite(premier)", ng-cloak)= t("app.result.andTheWinnerIs")
+            h1.text-center(ng-if="egalite(premier)", ng-cloak)= t("app.result.itsATie")
 
             h2.text-center
                 span.label.label-success(ng-if="!egalite(premier)", ng-bind="labelUnique(premier)")
@@ -13,15 +13,15 @@ block content
                     span(ng-repeat="proposition in premier.propositions")
                         span.label.label-info(ng-bind="proposition.label")
             p
-                h3 Ranking
+                h3= t("app.result.ranking")
                 ol
                     li(ng-repeat="resultat in classement")
                         span(ng-if="!egalite(resultat)", ng-bind="labelUnique(resultat)")
                         p(ng-if="egalite(resultat)")
                             span(ng-repeat="proposition in resultat.propositions")
                                 span(ng-bind="proposition.label")
-                                span(ng-if="!$last") &nbsp;==&nbsp;
-                a.btn.btn-default(href="/polls/#{pollId}") Return to the poll
+                                span(ng-if="!$last") &nbsp;=&nbsp;
+                a.btn.btn-default(href="/polls/#{pollId}")= t("app.result.returnToThePoll")
 
 block js
     != nap.js("resultat")
