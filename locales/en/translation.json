@@ -1,0 +1,21 @@
+{
+    "app": {
+        "menu": {
+            "home": "Home",
+            "newPoll": "New poll",
+            "help": "Help"
+        },
+        "footer": {
+            "learnMore": "Learn More",
+            "followUsOnTwitter": "Follow us on Twitter",
+            "kudosForTheLogoTo": "Kudos for the logo to"
+        },
+        "home": {
+            "pitch": "Voteer has many uses! It can help you reach a compromise within a group, or allow a development team to settle important working agreements. But it's not all about work! Can't decide what to see tonight? Go with Voteer!",
+            "createAPoll": "Create a poll",
+            "create": "Create",
+            "creationInProgress": "Create...",
+            "pollName": "Poll name"
+        }
+    }
+}

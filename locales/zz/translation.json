@@ -1,0 +1,9 @@
+{
+    "app": {
+        "pitch": "Voteer blabla",
+        "createAPoll": "Créer un sondage",
+        "create": "Créer",
+        "creationInProgress": "Creation...",
+        "pollName": "Nom du sondage"
+    }
+}

@@ -1,21 +1,17 @@
 extends include/layout
 block content
-
     header
-
         img.img-responsive(src="/img/voteer.png", alt="welcome to voteer")
-        p.lead Voteer has many uses! It can help you reach a compromise within a group, or allow a development team to settle important working agreements. But it's not all about work! Can't decide what to see tonight? Go with Voteer!
-
+        p.lead= t('app.home.pitch')
     hr
     div(ng-app='pages.accueil')
         .jumbotron
-            h3#create Create a poll
+            h3#create= t('app.home.createAPoll')
             form.form-group(ng-submit='creeSondage()', ng-controller='AccueilControleur')
                 .row
                     .form-group.col-xs-8.col-xs-offset-2.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
-                        input.form-control(type='text', ng-model='poll.name', placeholder="Poll name", required=true)
+                        input.form-control(type='text', ng-model='poll.name', placeholder=t('app.home.pollName'), required=true)
                 .row
-                    button.btn.btn-primary.btn-lg(type='submit', loading="Create...", ng-disabled="creation")
-                        | Create
+                    button.btn.btn-primary.btn-lg(type='submit', loading=t('app.home.creationInProgress'), ng-disabled="creation")= t('app.home.create')
 block js
     != nap.js("accueil")

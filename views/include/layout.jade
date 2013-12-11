@@ -37,29 +37,30 @@ html
                 ul.nav.navbar-nav
 
                     li(class=classe==='accueil'?'active':'')
-                        a(href="/") Home
+                        a(href="/")= t("app.menu.home")
                     li
-                        a(href="/#create") New poll
+                        a(href="/#create")= t("app.menu.newPoll")
                     li(class=classe==='aide'?'active':'')
-                        a(href="/help") Help
+                        a(href="/help")= t("app.menu.help")
         .container
             block content
             hr
             footer
                 a.pull-right(href="http://en.wikipedia.org/wiki/Condorcet_method", target="_blank")
                     span.glyphicon.glyphicon-info-sign
-                    | &nbsp;Learn More
+                    | &nbsp;
+                    span= t("app.footer.learnMore")
                 span.pull-right
                     | &nbsp-&nbsp;
                 a.pull-right(href="https://twitter.com/voteer", target="_blank")
-                    | Follow us on Twitter
+                    span= t("app.footer.followUsOnTwitter")
                 | #{version_courante}
                 a(href="http://www.arpinum.fr", target="_blank")
                     span.glyphicon.glyphicon-copyright-mark
                     |&nbsp;Arpinum
                 |  2012-2013
                 | -
-                | Kudos for the logo to
+                span= t("app.footer.kudosForTheLogoTo")
                 a(href="http://dribbble.com/fjeannet", target="_blank") &nbsp;Fabrice Jeannet
 
 
