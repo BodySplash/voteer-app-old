@@ -17,6 +17,12 @@ module.exports = function (app) {
                     '/public/app/directives/loading.js',
                     '/public/app/directives/ajaxloader.js'
                 ],
+                anglais: [
+                    '/assets/bower_components/angular/i18n/angular-locale_en-us.js'
+                ],
+                francais: [
+                    '/assets/bower_components/angular/i18n/angular-locale_fr-fr.js'
+                ],
                 accueil: [
                     '/public/app/sondage/_module.js',
                     '/public/app/sondage/sondages_ressource.js',

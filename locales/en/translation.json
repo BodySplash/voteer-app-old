@@ -1,5 +1,6 @@
 {
     "app": {
+        "angularLocale" : "anglais",
         "menu": {
             "home": "Home",
             "newPoll": "New poll",

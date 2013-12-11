@@ -91,6 +91,7 @@ html
 
 
         != nap.js("base")
+        != nap.js(t("app.angularLocale"))
         script.
             angular.module('envProvider', [])
             .provider('env', function () {
