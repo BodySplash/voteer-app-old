@@ -125,7 +125,7 @@ describe("Vote controleur", function () {
             it("doit être possible de valider son vote", function () {
                 scope.valideVote();
 
-                expect(Votes.save).toHaveBeenCalledWith({id : "unId"}, scope.vote, jasmine.any(Function));
+                expect(Votes.save).toHaveBeenCalledWith({id : "unId"}, scope.vote, jasmine.any(Function), jasmine.any(Function));
             });
 
             it("doit désactiver le bouton de vote", function() {

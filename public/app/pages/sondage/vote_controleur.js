@@ -45,9 +45,10 @@
                 $scope.creation = true;
                 Votes.save({id: $scope.sondage.id}, $scope.vote, function() {
                     $window.location = "/thankyou?pollId=" + $scope.sondage.id
+                }, function() {
+                    $scope.creation = false;
                 });
             };
-
 
             function choixEnCours() {
                 return $scope.vote.proposals || [];

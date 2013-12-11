@@ -18,7 +18,7 @@ describe("Votes sondage controleur", function () {
         })
     }]));
 
-    describe("Étantd donné que le sondage est public", function () {
+    describe("Étant donné que le sondage est public", function () {
 
         var nombreVotes = 0;
 
@@ -49,7 +49,7 @@ describe("Votes sondage controleur", function () {
         });
     });
 
-    describe("Étantd donné que le sondage est privé", function () {
+    describe("Étant donné que le sondage est privé", function () {
 
         beforeEach(function () {
             scope.sondage = { visibility: 'Privee', id: 'un id'};
