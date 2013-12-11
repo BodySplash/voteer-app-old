@@ -53,6 +53,7 @@ module.exports = function (app) {
                 ],
                 resultat: [
                     '/public/app/sondage/_module.js',
+                    '/public/app/sondage/sondage_ressource.js',
                     '/public/app/sondage/sondage_identite_provider.js',
                     '/public/app/classement/_module.js',
                     '/public/app/classement/classement_sondage_ressource.js',

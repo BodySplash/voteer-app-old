@@ -2,7 +2,7 @@ include include/header-sondage
 extends include/layout
 block content
     div(ng-app='pages.sondage', ng-controller="SondageControleur")
-        mixin headerSondage(true)
+        mixin headerSondage(true, true)
 
         ul.nav.nav-tabs
             li.active

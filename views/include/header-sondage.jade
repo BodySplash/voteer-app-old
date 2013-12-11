@@ -1,4 +1,4 @@
-mixin headerSondage(avecReseauxSociaux)
+mixin headerSondage(avecReseauxSociaux, avecLiens)
 
     header.entete-sondage.page-header.ng-cloak
         div(loader="sondageCharge")
@@ -6,10 +6,11 @@ mixin headerSondage(avecReseauxSociaux)
         p
             span.glyphicon.glyphicon-time
             | &nbsp;{{sondage.creationDate|date:'longDate'}}
-        p
-            a(href="/polls/{{sondage.id}}/result") See poll result
-        p
-            a(href="", data-toggle="modal", data-target="#qrModal") Display QR code
+        if avecLiens
+            p
+                a(href="/polls/{{sondage.id}}/result") See poll result
+            p
+                a(href="", data-toggle="modal", data-target="#qrModal") Display QR code
         if avecReseauxSociaux
             .reseaux-sociaux
                 span.st_googleplus(displayText='Google +')

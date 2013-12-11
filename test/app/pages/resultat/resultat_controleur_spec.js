@@ -1,6 +1,6 @@
 describe("Resultat Controleur", function() {
 
-    var scope, controleur, classement, idUtilise;
+    var scope, controleur, classement, idClassementUtilise, idSondageUtilise;
 
     beforeEach(function() {
        module("pages.resultat");
@@ -14,16 +14,27 @@ describe("Resultat Controleur", function() {
         controleur =  $controller("ResultatControleur", {
            $scope : scope,
            ClassementSondageRessource : {query : function(params, callback) {
-               idUtilise = params.id;
+               idClassementUtilise = params.id;
                callback(classement);
                return classement;
            }},
-           IdentiteSondage: {id : "unId"}
+           IdentiteSondage: {id : "unId"},
+           SondageRessource: {get: function(params, callback) {
+               idSondageUtilise = params.id;
+               callback();
+               return {};
+           }}
         });
     }));
 
+    it("doit charger le sondage", function() {
+        expect(idSondageUtilise).toBe("unId");
+        expect(scope.sondage).toBeDefined();
+        expect(scope.sondageCharge).toBeTruthy();
+    });
+
     it("doit charger les résultats", function() {
-       expect(idUtilise).toBe("unId");
+       expect(idClassementUtilise).toBe("unId");
        expect(scope.classement).toBe(classement);
     });
 

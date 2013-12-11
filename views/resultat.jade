@@ -1,7 +1,9 @@
+include include/header-sondage
 extends include/layout
 block content
-    .jumbotron(ng-app="pages.resultat", ng-controller="ResultatControleur")
-        .container
+    div(ng-app="pages.resultat", ng-controller="ResultatControleur")
+        mixin headerSondage(true, false)
+        .jumbotron
             h1 And the winner is
 
             h2
@@ -14,3 +16,10 @@ block content
 
 block js
     != nap.js("resultat")
+    script(type="text/javascript").
+        var switchTo5x=true;
+
+    script(type="text/javascript", src="http://w.sharethis.com/button/buttons.js")
+
+    script(type="text/javascript").
+        stLight.options({publisher: "666009eb-0a92-4a94-a03d-abeabcba8f41", doNotHash: false, doNotCopy: false, hashAddressBar: false});
