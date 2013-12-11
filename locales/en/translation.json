@@ -42,8 +42,8 @@
             "votes": "Votes",
             "noVoteYet": "No vote yet",
             "participant": "Participant",
-	    "vote": "Vote",
-	    "anonymous": "Anonymous"
+            "vote": "Vote",
+            "anonymous": "Anonymous"
         },
         "result": {
             "andTheWinnerIs": "And the winner is",
@@ -75,8 +75,8 @@
             "seePollResult": "See poll result",
             "noVoteYet": "No vote yet",
             "participant": "Participant",
-	    "vote": "Vote",
-	    "anonymous": "Anonymous"
+            "vote": "Vote",
+            "anonymous": "Anonymous"
         },
         "help": {
             "help": "Help",
