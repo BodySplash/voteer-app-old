@@ -4,15 +4,14 @@ block content
     div(ng-app="pages.resultat", ng-controller="ResultatControleur")
         mixin headerSondage(true, false)
         .jumbotron
-            h1(ng-if="!egalite(premier)", ng-cloak) And the winner is
-            h1(ng-if="egalite(premier)", ng-cloak) It's a tie !
+            h1.text-center(ng-if="!egalite(premier)", ng-cloak) And the winner is
+            h1.text-center(ng-if="egalite(premier)", ng-cloak) It's a tie !
 
-            h2
+            h2.text-center
                 span.label.label-success(ng-if="!egalite(premier)", ng-bind="labelUnique(premier)")
                 p(ng-if="egalite(premier)")
                     span(ng-repeat="proposition in premier.propositions")
                         span.label.label-info(ng-bind="proposition.label")
-                        span
             p
                 h3 Ranking
                 ol
