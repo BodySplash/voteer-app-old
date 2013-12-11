@@ -4,14 +4,24 @@ block content
     div(ng-app="pages.resultat", ng-controller="ResultatControleur")
         mixin headerSondage(true, false)
         .jumbotron
-            h1 And the winner is
+            h1(ng-if="!egalite(premier)", ng-cloak) And the winner is
+            h1(ng-if="egalite(premier)", ng-cloak) It's a tie !
 
             h2
-                span.label.label-success(ng-bind="premier.label")
+                span.label.label-success(ng-if="!egalite(premier)", ng-bind="labelUnique(premier)")
+                p(ng-if="egalite(premier)")
+                    span(ng-repeat="proposition in premier.propositions")
+                        span.label.label-info(ng-bind="proposition.label")
+                        span &nbsp;
             p
                 h3 Ranking
                 ol
-                    li(ng-repeat="proposition in classement", ng-bind="proposition.label")
+                    li(ng-repeat="resultat in classement")
+                        span(ng-if="!egalite(resultat)", ng-bind="labelUnique(resultat)")
+                        p(ng-if="egalite(resultat)")
+                            span(ng-repeat="proposition in resultat.propositions")
+                                span(ng-bind="proposition.label")
+                                span(ng-if="!$last") &nbsp;==&nbsp;
                 a.btn.btn-default(href="/polls/#{pollId}") Return to the poll
 
 block js
