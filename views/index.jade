@@ -10,11 +10,11 @@ block content
     div(ng-app='pages.accueil')
         .jumbotron
             h3#create Create a poll
-            form(ng-submit='creeSondage()', ng-controller='AccueilControleur')
-                .control-group
-                    .controls
-                        input(type='text', ng-model='poll.name', placeholder="Poll name", required=true)
-                        span.help-inline
+            form.form-group(ng-submit='creeSondage()', ng-controller='AccueilControleur')
+                .row
+                    .form-group.col-xs-8.col-xs-offset-2.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
+                        input.form-control(type='text', ng-model='poll.name', placeholder="Poll name", required=true)
+                .row
                     button.btn.btn-primary.btn-lg(type='submit', loading="Create...", ng-disabled="creation")
                         | Create
 block js
