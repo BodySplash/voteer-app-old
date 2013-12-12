@@ -46,7 +46,7 @@
             "closed": "Fermé",
             "proposals": "Propositions",
             "delete": "Supprimer",
-            "enterProposalPlaceHolder": "Entrer une proposition et taper sur entrée",
+            "enterProposalPlaceHolder": "Entrez une proposition et tapez sur entrée",
             "votesExistOrPollIsClosed": "Des votes existent ou les sondage est fermé.",
             "votes": "Votes",
             "noVoteYet": "Aucun vote pour l'instant",
