@@ -1,0 +1,120 @@
+{
+    "locale": "Français",
+    "app": {
+        "angularLocale" : "francais",
+        "menu": {
+            "home": "Accueil",
+            "newPoll": "Nouveau sondage",
+            "help": "Aide"
+        },
+        "title": {
+            "global": "Voteer, obtenez un compromis de groupe facilement",
+            "pollResult": "Résultat du sondage",
+            "admin": "Administration du sondage",
+            "help": "Aide",
+            "thankYou": "Merci pour votre vote"
+        },
+        "footer": {
+            "learnMore": "En savoir plus",
+            "followUsOnTwitter": "Suivez-nous sur Twitter",
+            "kudosForTheLogoTo": "Poutous pour le logo à"
+        },
+        "home": {
+            "pitch": "Voteer peut servir à beaucoup de choses ! Il peut aider à trouver un compromis au sein d'un groupe, ou permettre à une équipe de se mettre d'accord sur des pratiques. Mais assez parlé de travail ! Vous ne savez pas quoi aller voir ce soir ? Essayez Voteer !",
+            "createAPoll": "Créer un sondage",
+            "create": "Créer",
+            "creationInProgress": "Création en cours...",
+            "pollName": "Nom du sondage"
+        },
+        "pollHeader": {
+            "seePollResult": "Voir le résultat du sondage",
+            "displayQRCode": "Voir le QR code",
+            "QRCode": "QR Code",
+            "close": "Fermer"
+        },
+        "admin": {
+            "voteLink": "Lien vers le vote :",
+            "configuration": "Configuration",
+            "votesAre": "Les votes sont :",
+            "private": "Privés",
+            "public": "Publics",
+            "commentsAre": "Les commentaires sont :",
+            "disabled": "Désactivés",
+            "enabled": "Activés",
+            "pollIs": "Le sondage est :",
+            "opened": "Ouvert",
+            "closed": "Fermé",
+            "proposals": "Propositions",
+            "delete": "Supprimer",
+            "enterProposalPlaceHolder": "Entrer une proposition et taper sur entrée",
+            "votesExistOrPollIsClosed": "Des votes existent ou les sondage est fermé.",
+            "votes": "Votes",
+            "noVoteYet": "Aucun vote pour l'instant",
+            "participant": "Participant",
+            "vote": "Vote",
+            "anonymous": "Anonyme"
+        },
+        "result": {
+            "andTheWinnerIs": "Et le gagnant est",
+            "itsATie": "C'est une égalité !",
+            "ranking": "Classement",
+            "returnToThePoll": "Retourner au sondage"
+        },
+        "thankyou": {
+            "thankYouForYourVote": "Merci pour votre vote !",
+            "nowYouCanEither": "Maintenant, vous pouvez :",
+            "returnToThePoll": "Retourner au sondage",
+            "seeVoteResult": "Voir le résultat"
+        },
+        "sondage": {
+            "participate": "Participer",
+            "existingVotes": "Votes existants",
+            "comments": "Commentaires",
+            "noProposal": "Pas encore de propositions pour ce sondage",
+            "proceed": "Votez !",
+            "pick": "Choisissez les propositions",
+            "select": "Sélectionner",
+            "orderThem": "Ordonnez les",
+            "unselect": "Retirer",
+            "enterYourNameAndVote": "Entrez votre nom et votez !",
+            "enterNameOrNickname": "Nom ou surnom",
+            "voteAction": "Votez !",
+            "voteInProgress": "Vote en cours...",
+            "pollIsClosed": "Le sondage est fermé !",
+            "seePollResult": "Voir le résultat",
+            "noVoteYet": "Aucun vote pour l'instant",
+            "participant": "Participant",
+            "vote": "Vote",
+            "anonymous": "Anonyme"
+        },
+        "help": {
+            "help": "Aide",
+            "participate": "Je veux participer à un sondage",
+            "ontovoting": "Cliquez juste sur le lien donné par votre ami. Maintenant, votons !",
+            "pick": "choisissez les propositions",
+            "clicking": "en cliquant dessus",
+            "order": "ordonnez les propositions",
+            "arrows": "en utilisant les boutons fléchés",
+            "provide": "donnez votre",
+            "name": "nom",
+            "wish": "si vous le souhaitez",
+            "click": "cliquez",
+            "votebutton": "sur le bouton vote",
+            "comments": "si les commentaires sont activés, vous pouvez partager votre point de vue avec les autres participants",
+            "create": "Je veux créer un sondage",
+            "creating": "Créer un sondage est simple :",
+            "on": "sur la",
+            "front": "page d'accueil, ",
+            "enter": "entrez",
+            "pollname": "le nom du sondage",
+            "createbutton": "sur le bouton créer",
+            "pollmaking": "you are now on the poll making page",
+            "configure": "configurez votre sondage, via les options mis à disposition",
+            "entermany": "entrez autant de",
+            "propositions": "propositions",
+            "like": "que vous le souhaitez",
+            "share": "partagez",
+            "votelink": "le lien du vote avec vos amis ou vos collègues en utilisant les boutons des réseaux sociaux."
+        }
+    }
+}

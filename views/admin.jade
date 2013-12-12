@@ -15,12 +15,12 @@ block content
             .panel.panel-default
                 .panel-heading
                     h4= t("app.admin.configuration")
-                .panel-body
+                .panel-body.toggle
                     div(loader="configurationChargee")
-                    div
-                        .col-lg-2
+                    .row
+                        .col-xs-3
                             label= t("app.admin.votesAre")
-                        .col-lg-10
+                        .col-xs-9
                             .btn-group(data-toggle="buttons")
                                 label.btn.btn-primary(ng-class="{Privee:'active'}[sondage.visibility]", ng-click="changeVisibilite('Privee')")
                                     input(type="radio", name="visibility", value="Privee")
@@ -28,10 +28,10 @@ block content
                                 label.btn.btn-primary(ng-class="{Public:'active'}[sondage.visibility]", ng-click="changeVisibilite('Public')")
                                     input(type="radio", name="visibility", value="Public")
                                     span= t("app.admin.public")
-                    div
-                        .col-lg-2
+                    .row
+                        .col-xs-3
                             label= t("app.admin.commentsAre")
-                        .col-lg-10
+                        .col-xs-9
                             .btn-group(data-toggle="buttons")
                                 label.btn.btn-primary(ng-class="{active : !sondage.withComments}", ng-click="changeCommentaires(false)")
                                     input(type="radio", name="withComments", value="false")
@@ -39,10 +39,10 @@ block content
                                 label.btn.btn-primary(ng-class="{active : sondage.withComments}", ng-click="changeCommentaires(true)")
                                     input(type="radio", name="withComments", value="true")
                                     span= t("app.admin.enabled")
-                    div
-                        .col-lg-2
+                    .row
+                        .col-xs-3
                             label= t("app.admin.pollIs")
-                        .col-lg-10
+                        .col-xs-9
                             .btn-group(data-toggle="buttons")
                                 label.btn.btn-primary(ng-class="{active : sondage.status == 'Ouvert'}", ng-click="changeStatus('Ouvert')")
                                     input(type="radio", name="status", value="Opened")

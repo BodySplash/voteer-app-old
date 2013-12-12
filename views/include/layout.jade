@@ -32,16 +32,27 @@ html
                     span.icon-bar
                     span.icon-bar
                     span.icon-bar
+                    span.icon-bar
 
             .collapse.navbar-collapse#navbar-main
                 ul.nav.navbar-nav
-
                     li(class=classe==='accueil'?'active':'')
                         a(href="/")= t("app.menu.home")
                     li
                         a(href="/#create")= t("app.menu.newPoll")
                     li(class=classe==='aide'?'active':'')
                         a(href="/help")= t("app.menu.help")
+                ul.nav.navbar-nav.navbar-right
+                    li.dropdown.pull-right
+                        a.dropdown-toggle(href="", data-toggle="dropdown")
+                            = t("locale")
+                            | &nbsp;
+                            b.caret
+                        ul.dropdown-menu
+                            li
+                                a(href="?setLng=en") English
+                            li
+                                a(href="?setLng=fr") Français
         .container
             block content
             hr
