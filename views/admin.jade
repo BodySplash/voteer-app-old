@@ -95,9 +95,9 @@ block content
                                     span(ng-if="vote.participant") {{vote.participant}}
                                     span(ng-if="!vote.participant")= t('app.admin.anonymous')
                                 td
-                                    span(ng-repeat="choix in vote.choices")
+                                    p(ng-repeat="choix in vote.choices", class="choix")
                                         | {{choix}}
-                                        span(ng-if="!$last"), 
+                                        span(ng-if="!$last") ,
                                 td
                                     button.btn.btn-danger(ng-click="supprimeVote(vote)")
                                         span.glyphicon.glyphicon-trash

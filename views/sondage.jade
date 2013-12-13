@@ -82,9 +82,9 @@ block content
                                 span(ng-if="vote.participant") {{vote.participant}}
                                 span(ng-if="!vote.participant")= t('app.sondage.anonymous')
                             td
-                                span(ng-repeat="choix in vote.choices")
+                                p(ng-repeat="choix in vote.choices", class="choix")
                                     | {{choix}}
-                                    span(ng-if="!$last"), 
+                                    span(ng-if="!$last") ,
 
             .tab-pane(ng-if="sondage.withComments", disqus)
 
