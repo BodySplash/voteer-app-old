@@ -17,9 +17,10 @@ block content
                 ol
                     li(ng-repeat="resultat in classement")
                         span(ng-if="!egalite(resultat)", ng-bind="labelUnique(resultat)")
-                        p(ng-if="egalite(resultat)" ng-repeat="proposition in resultat.propositions", class="choix")
-                            span(ng-bind="proposition.label")
-                            span(ng-if="!$last") &nbsp;=&nbsp;
+                        div(ng-if="egalite(resultat)")
+                            p(ng-repeat="proposition in resultat.propositions", class="choix")
+                                span(ng-bind="proposition.label")
+                                span(ng-if="!$last") &nbsp;=&nbsp;
                 a.btn.btn-default(href="/polls/#{pollId}")= t("app.result.returnToThePoll")
 
 block js
