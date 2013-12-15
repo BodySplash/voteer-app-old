@@ -58,9 +58,9 @@ block content
                     div(loader="propositionsChargees")
 
                     div
-                        table.table
+                        table.table.propositions
                             tr(ng-repeat="proposition in propositions")
-                                td(ng-bind="proposition.label")
+                                td(ng-bind-html="proposition.label | linky:'_blank'")
                                 td
                                     button.btn.btn-danger(ng-click="supprimeProposition(proposition)", ng-disabled="!ajoutPropositionPossible")
                                         span.glyphicon.glyphicon-trash
@@ -83,7 +83,7 @@ block content
                 .panel-body
                     div(loader="votesCharges")
                     span(ng-show="votes.length == 0")= t("app.admin.noVoteYet")
-                    table.table(ng-show="votes.length > 0")
+                    table.table.votes(ng-show="votes.length > 0")
                         thead
                             tr
                                 th= t("app.admin.participant")
@@ -96,7 +96,7 @@ block content
                                     span(ng-if="!vote.participant")= t('app.admin.anonymous')
                                 td
                                     p(ng-repeat="choix in vote.choices", class="choix")
-                                        | {{choix}}
+                                        span(ng-bind-html="choix | linky:'_blank'")
                                         span(ng-if="!$last") ,
                                 td
                                     button.btn.btn-danger(ng-click="supprimeVote(vote)")

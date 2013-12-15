@@ -11,6 +11,7 @@ module.exports = function (app) {
                     '/public/bootstrap/js/bootstrap.js',
                     '/assets/bower_components/angular/angular.js',
                     '/assets/bower_components/angular/angular-resource.js',
+                    '/assets/bower_components/angular/angular-sanitize.js',
                     '/assets/bower_components/angular-ui/build/angular-ui.js',
                     '/assets/bower_components/uri.js/src/URI.js',
                     '/public/app/directives/_module.js',

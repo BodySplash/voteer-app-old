@@ -8,19 +8,18 @@ block content
             h1.text-center(ng-if="egalite(premier)", ng-cloak)= t("app.result.itsATie")
 
             h2.text-center
-                span.label.label-success(ng-if="!egalite(premier)", ng-bind="labelUnique(premier)")
+                span.label.label-success(ng-if="!egalite(premier)", ng-bind-html="labelUnique(premier) | linky:'_blank'")
                 p(ng-if="egalite(premier)")
                     span(ng-repeat="proposition in premier.propositions")
-                        span.label.label-info(ng-bind="proposition.label")
+                        span.label.label-info(ng-bind-html="proposition.label | linky:'_blank'")
             p
                 h3= t("app.result.ranking")
                 ol
                     li(ng-repeat="resultat in classement")
-                        span(ng-if="!egalite(resultat)", ng-bind="labelUnique(resultat)")
-                        div(ng-if="egalite(resultat)")
-                            p(ng-repeat="proposition in resultat.propositions", class="choix")
-                                span(ng-bind="proposition.label")
-                                span(ng-if="!$last") &nbsp;=&nbsp;
+                        span(ng-if="!egalite(resultat)", ng-bind-html="labelUnique(resultat) | linky:'_blank'")
+                        p(ng-if="egalite(resultat)", ng-repeat="proposition in resultat.propositions", class="choix")
+                            span(ng-bind-html="proposition.label | linky:'_blank'")
+                            span(ng-if="!$last") &nbsp;=&nbsp;
                 a.btn.btn-default(href="/polls/#{pollId}")= t("app.result.returnToThePoll")
 
 block js

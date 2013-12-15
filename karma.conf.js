@@ -19,6 +19,7 @@ module.exports = function(config) {
       'assets/bower_components/angular/angular.js',
       'assets/bower_components/angular-ui/build/angular-ui.js',
       'assets/bower_components/angular/angular-resource.js',
+      'assets/bower_components/angular/angular-sanitize.js',
       'assets/bower_components/angular/angular-mocks.js',
       'public/app/**/*.js',
       'test/**/*.js'

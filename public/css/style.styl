@@ -79,8 +79,8 @@ form
     margin-top 10px
 
     h3
-      margin-top: 10px;
-      margin-bottom: 20px;
+      margin-top 10px;
+      margin-bottom 20px;
 
   .participation
   .action
@@ -88,6 +88,16 @@ form
 
   h5.list-group-item-heading
     word-wrap break-word
+    &.text-info
+      a
+        color #3a87ad
+        &:hover
+          color #2d6987
+    &.text-success
+      a
+        color #468847
+        &:hover
+          color #356635
 
 .admin
 
@@ -103,6 +113,9 @@ form
     position relative
   .tab-pane
     position relative
+  .propositions, .votes
+    a, a:hover
+      color #777777
 
 // page de résultats
 
@@ -113,6 +126,12 @@ form
       .label
         margin: 0 3px
         display: inline-block
+    ol
+      a, a:hover
+        color #777777
+    .label
+      a, a:hover
+        color #ffffff
 
 .reseaux-sociaux
   padding-top 10px

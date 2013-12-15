@@ -31,7 +31,7 @@ block content
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in propositions")
                                         h5.list-group-item-heading.text-info
-                                            strong {{proposition.label}}
+                                            strong(ng-bind-html="proposition.label | linky:'_blank'")
                                         p.list-group-item-text
                                             button.btn.btn-info(ng-click="votePour(proposition)", type="button")
                                                 = t("app.sondage.select")
@@ -46,7 +46,7 @@ block content
                                 ul.list-group
                                     li.list-group-item(ng-repeat="proposition in vote.proposals")
                                         h5.list-group-item-heading.text-success
-                                            strong {{proposition.label}}
+                                            strong(ng-bind-html="proposition.label | linky:'_blank'")
                                         p.list-group-item-text
                                             .btn-group
                                                 button.btn.btn-info(type="button", ng-click="annuleVotePour(proposition)")
@@ -71,7 +71,7 @@ block content
                     a.btn.btn-default(href="/polls/{{sondage.id}}/result")= t("app.sondage.seePollResult")
             .tab-pane#votes(ng-show="afficheVote()", ng-controller="VotesSondageControleur")
                 span(ng-show="votes.length == 0")= t("app.sondage.noVoteYet")
-                table.table(ng-show="votes.length > 0")
+                table.table.votes(ng-show="votes.length > 0")
                     thead
                         tr
                             th= t("app.sondage.participant")
@@ -83,7 +83,7 @@ block content
                                 span(ng-if="!vote.participant")= t('app.sondage.anonymous')
                             td
                                 p(ng-repeat="choix in vote.choices", class="choix")
-                                    | {{choix}}
+                                    span(ng-bind-html="choix | linky:'_blank'")
                                     span(ng-if="!$last") ,
 
             .tab-pane(ng-if="sondage.withComments", disqus)

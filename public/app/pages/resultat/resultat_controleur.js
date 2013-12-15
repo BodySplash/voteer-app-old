@@ -1,7 +1,7 @@
 (function(angular) {
     "use strict";
 
-    angular.module("pages.resultat", ['sondage.utils', 'classement.ressource', 'sondage.ressource'])
+    angular.module("pages.resultat", ['sondage.utils', 'classement.ressource', 'sondage.ressource', 'ngSanitize'])
         .controller("ResultatControleur", ['IdentiteSondage', 'ClassementSondageRessource', 'SondageRessource', '$scope', function(identiteSondage, ClassementSondage, SondageRessource, $scope) {
 
             $scope.egalite = function(resultat) {
@@ -13,7 +13,7 @@
 
             $scope.labelUnique = function(resultat) {
                 if(resultat) {
-                    return _.first(resultat.propositions).label;
+                    return  _.first(resultat.propositions).label;
                 }
                 return "";
             }
