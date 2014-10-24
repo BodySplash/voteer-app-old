@@ -41,7 +41,7 @@ describe("Vote controleur", function () {
             id: "unId"
         };
         var propositions = [{label: "test"}];
-        Propositions.query.andReturn(propositions)
+        Propositions.query.andCallFake(function(id, callback) { callback(propositions);});
 
         scope.$broadcast("SondageChargé");
 
@@ -66,7 +66,7 @@ describe("Vote controleur", function () {
             id: "unId"
         };
         var propositions = [{label: "test"}];
-        Propositions.query.andReturn(propositions)
+        Propositions.query.andCallFake(function(id, callback) { callback(propositions);});
 
         scope.$broadcast("SondageChargé");
 
