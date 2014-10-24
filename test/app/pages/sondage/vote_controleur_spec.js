@@ -40,12 +40,12 @@ describe("Vote controleur", function () {
         scope.sondage = {
             id: "unId"
         };
-        var propositions = {label: "test"};
+        var propositions = [{label: "test"}];
         Propositions.query.andReturn(propositions)
 
         scope.$broadcast("SondageChargé");
 
-        expect(scope.propositions).toBe(propositions);
+        expect(scope.propositions).toEqual(propositions);
     });
 
     it("Doit dire que les propositions sont chargées", function() {
