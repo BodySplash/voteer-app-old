@@ -59,9 +59,9 @@
             }
 
             function chargePropositions() {
-                $scope.propositions = _.shuffle(Propositions.query({id: $scope.sondage.id}, function() {
+                $scope.propositions = Propositions.query({id: $scope.sondage.id}, function() {
                     $scope.propositionsChargees = true;
-                }));
+                });
             }
 
         }]);
